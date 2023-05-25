@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/feather_pen_26.9312px_1231006_easyicon.net.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/feather_pen_13.4656px_1231006_easyicon.net.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '3OTURL0KQC',
+      apiKey: '',
+      indexName: 'count',
+      hits: {"per_page":6},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="[Updated]  本文记录了 EXCEL 的高频快捷用法和常用函数">
+<meta name="keywords" content="Excel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Excel 快捷与函数">
+<meta property="og:url" content="https://jsonww.gitee.io/2020/09/21/Excel快捷与函数/index.html">
+<meta property="og:site_name" content="Json workspace">
+<meta property="og:description" content="[Updated]  本文记录了 EXCEL 的高频快捷用法和常用函数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-09-21T14:30:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Excel 快捷与函数">
+<meta name="twitter:description" content="[Updated]  本文记录了 EXCEL 的高频快捷用法和常用函数">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://jsonww.gitee.io/2020/09/21/Excel快捷与函数/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Excel 快捷与函数 | Json workspace</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Json workspace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">江畔何人初见月 江月何年初照人</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jsonww.gitee.io/2020/09/21/Excel快捷与函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Json">
+      <meta itemprop="description" content="Record & Share">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Json workspace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Excel 快捷与函数
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+	  
+ 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-09-21 22:26:01" itemprop="dateCreated datePublished" datetime="2020-09-21T22:26:01+08:00">2020-09-21</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-09-21 22:30:13" itemprop="dateModified" datetime="2020-09-21T22:30:13+08:00">2020-09-21</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Excel/" itemprop="url" rel="index"><span itemprop="name">Excel</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">4.7k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">4 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><font color="#008000"> [Updated] </font> 本文记录了 EXCEL 的高频快捷用法和常用函数</p>
+<a id="more"></a>
+<h1 id="Excel-快捷与函数"><a href="#Excel-快捷与函数" class="headerlink" title="Excel 快捷与函数"></a>Excel 快捷与函数</h1><h2 id="1-快捷"><a href="#1-快捷" class="headerlink" title="1 快捷"></a>1 快捷</h2><h3 id="1-1-常用快捷操作"><a href="#1-1-常用快捷操作" class="headerlink" title="1.1 常用快捷操作"></a>1.1 常用快捷操作</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl+方向键</td>
+<td>跳转至选中方向边缘的数据</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+方向键</td>
+<td>框选当前位置到选中方向边缘的所有数据</td>
+</tr>
+<tr>
+<td>Ctrl+空格键</td>
+<td>框选当前列</td>
+</tr>
+<tr>
+<td>Shift+空格键</td>
+<td>框选当前行</td>
+</tr>
+<tr>
+<td>Ctrl+f</td>
+<td>查找</td>
+</tr>
+<tr>
+<td>Ctrl+h</td>
+<td>替换</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+v</td>
+<td>选择性粘贴</td>
+</tr>
+<tr>
+<td>Ctrl+t</td>
+<td>隔行上色</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="1-2-自动填充"><a href="#1-2-自动填充" class="headerlink" title="1.2 自动填充"></a>1.2 自动填充</h3><p>自动填充数据和函数：</p>
+<ul>
+<li>选中单元格，瞄准右下角时鼠标变为十字准星，向某一方向框选区域进行自动填充</li>
+<li>选中单元格，瞄准右下角时鼠标变为十字准星，双击自动填充至边缘</li>
+<li>框选区域，输入填充内容，快捷键 Ctrl+Enter 自动填充</li>
+</ul>
+<p>智能填充：</p>
+<ol>
+<li>在第一个单元格手工输入目标值；</li>
+<li>框选填充区域；</li>
+<li>快捷键 Ctrl+E，自动识别填充规则并进行填充。</li>
+</ol>
+<h3 id="1-3-锁定："><a href="#1-3-锁定：" class="headerlink" title="1.3 锁定：$"></a>1.3 锁定：$</h3><p>锁定行或列，常配合自动填充使用。</p>
+<hr>
+<h2 id="2-函数"><a href="#2-函数" class="headerlink" title="2 函数"></a>2 函数</h2><h3 id="2-1-假设函数"><a href="#2-1-假设函数" class="headerlink" title="2.1 假设函数"></a>2.1 假设函数</h3><h4 id="2-1-2-IF"><a href="#2-1-2-IF" class="headerlink" title="2.1.2 IF"></a>2.1.2 IF</h4><p>根据条件进行真假判断，返回真假对应结果：</p>
+<blockquote>
+<p>IF(判断条件, 条件为“真”的返回值， 条件为“假”的返回值)</p>
+</blockquote>
+<p>判断条件可以为：</p>
+<ul>
+<li>单个条件</li>
+<li>AND(条件 1， 条件 2，……)</li>
+<li>OR(条件 1， 条件 2，……)</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=IF(AND(A1 &gt; 1, A2 &gt; 1), 1, 0)</td>
+<td>A1、A2 都大于 1 则返回 1，否则返回0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-1-3-COUNT"><a href="#2-1-3-COUNT" class="headerlink" title="2.1.3 COUNT"></a>2.1.3 COUNT</h4><p>计算包含数字的单元格个数以及参数列表中数字的个数:</p>
+<blockquote>
+<p>COUNT(value1, [value2], …)</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=COUNT(A1:A5)</td>
+<td>返回单元格区域 A1 到 A5 中包含数字的单元格的个数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-1-4-COUNTIFS"><a href="#2-1-4-COUNTIFS" class="headerlink" title="2.1.4 COUNTIFS"></a>2.1.4 COUNTIFS</h4><p>统计满足所有条件的次数：</p>
+<blockquote>
+<p>COUNTIFS(criteria_range1, criteria1, [criteria_range2, criteria2],…)</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=COUNTIFS(A2:A17, “=1”, B2:B17, “&gt;1/1/2010”, C2:C17, “&lt;” &amp; D2)</td>
+<td>返回满足“A=1，B 日期晚于 2010-1-1，C &lt; 单元格 D2 数字”条件的单元格的个数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-1-5-SUMIF"><a href="#2-1-5-SUMIF" class="headerlink" title="2.1.5 SUMIF"></a>2.1.5 SUMIF</h4><p>对范围中符合指定条件的值求和：</p>
+<blockquote>
+<p>SUMIF(range, criteria, [sum_range])</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=SUMIF(A1:A5, “&gt;100”)</td>
+<td>返回 A1:A5 区域大于 100 的数值之和</td>
+</tr>
+<tr>
+<td>=SUMIF(A1:A5, “=” &amp; C1, B1:B5)</td>
+<td>返回 A1:A5 中等于 C1 对应的 Bi 之和</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-1-6-SUMIFS"><a href="#2-1-6-SUMIFS" class="headerlink" title="2.1.6 SUMIFS"></a>2.1.6 SUMIFS</h4><p>计算满足多个条件的全部参数的总量：</p>
+<blockquote>
+<p>SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], …)</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=SUMIFS(A1:B5, B1:B5, “=A*”, C1:C5, “B”)</td>
+<td>返回 A1:B5 区域中满足条件“Bi 为 ‘Axx..’ 且 Ci 为 ‘B’” 的 Ai 之和</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-2-数值函数"><a href="#2-2-数值函数" class="headerlink" title="2.2 数值函数"></a>2.2 数值函数</h3><h4 id="2-2-1-SUM"><a href="#2-2-1-SUM" class="headerlink" title="2.2.1 SUM"></a>2.2.1 SUM</h4><p>对选中区域数值求和：</p>
+<blockquote>
+<p>SUM(number1, [number2], …)</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=SUM(A1:B5, D1:F5)</td>
+<td>返回 A1:B5 和 D1:F5 区域值之和</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>快捷键：Alt+=</li>
+</ul>
+<h4 id="2-2-2-SUMPRODUCT"><a href="#2-2-2-SUMPRODUCT" class="headerlink" title="2.2.2 SUMPRODUCT"></a>2.2.2 SUMPRODUCT</h4><p>返回对应的区域或数组的乘积（默认乘法，还可通过公式指定加、减、除）之和（执行完所有操作，最终操作总为求和）：</p>
+<blockquote>
+<p>SUMPRODUCT(array1, [array2], [array3], …)</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=SUMPRODUCT(A1:A5, B1:B5)</td>
+<td>对 A1:A5, B1:B5 对应乘积求和（常见：加权平均）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-2-3-ROUND（UP-DOWN）"><a href="#2-2-3-ROUND（UP-DOWN）" class="headerlink" title="2.2.3 ROUND（UP/DOWN）"></a>2.2.3 ROUND（UP/DOWN）</h4><p>对数字按指定位数（向上/向下）四舍五入：</p>
+<blockquote>
+<p>ROUND(number, num_digits)</p>
+</blockquote>
+<ul>
+<li>num_digits 大于 0（零），则将数字四舍五入到指定的小数位数。</li>
+<li>num_digits 等于 0，则将数字四舍五入到最接近的整数。</li>
+<li>num_digits 小于 0，则将数字四舍五入到小数点左边的相应位数。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=ROUND(3.14, 1)</td>
+<td>四舍五入到一个小数位，返回 3.1</td>
+</tr>
+<tr>
+<td>=ROUND(13.14, -1)</td>
+<td>四舍五入到小数点左侧一位，返回 10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-2-4-SUBTOTAL"><a href="#2-2-4-SUBTOTAL" class="headerlink" title="2.2.4 SUBTOTAL"></a>2.2.4 SUBTOTAL</h4><p>返回列表或数据库中的分类汇总：</p>
+<blockquote>
+<p>SUBTOTAL(function_num, ref1, [ref2],…)</p>
+</blockquote>
+<p>其中，function_num 与函数对应表如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Function_num</th>
+<th>对应函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1    101</td>
+<td>AVERAGE</td>
+</tr>
+<tr>
+<td>2    102</td>
+<td>COUNT</td>
+</tr>
+<tr>
+<td>3    103</td>
+<td>COUNTA</td>
+</tr>
+<tr>
+<td>4    104</td>
+<td>MAX</td>
+</tr>
+<tr>
+<td>5    105</td>
+<td>MIN</td>
+</tr>
+<tr>
+<td>6    106</td>
+<td>PRODUCT</td>
+</tr>
+<tr>
+<td>7    107</td>
+<td>STDEV</td>
+</tr>
+<tr>
+<td>8    108</td>
+<td>STDEVP</td>
+</tr>
+<tr>
+<td>9    109</td>
+<td>SUM</td>
+</tr>
+<tr>
+<td>10    110</td>
+<td>VAR</td>
+</tr>
+<tr>
+<td>11    111</td>
+<td>VARP</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=SUBTOTAL(9/109, A1:A5)</td>
+<td>对 A1:A5 执行 9/109 代表的函数（求和）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-2-5-LARGE"><a href="#2-2-5-LARGE" class="headerlink" title="2.2.5 LARGE"></a>2.2.5 LARGE</h4><p>返回数据集中第 k 个最大值：</p>
+<blockquote>
+<p>LARGE(array, k)</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=LARGE(A1:B5, 5)</td>
+<td>返回 A1:B5 区域第 5 大的值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-3-定位查找函数"><a href="#2-3-定位查找函数" class="headerlink" title="2.3 定位查找函数"></a>2.3 定位查找函数</h3><h4 id="2-3-1-VLOOKUP"><a href="#2-3-1-VLOOKUP" class="headerlink" title="2.3.1 VLOOKUP"></a>2.3.1 VLOOKUP</h4><p>按行查找项目：</p>
+<blockquote>
+<p>VLOOKUP （查阅值、查阅值所在的区域、区域中包含返回值的列号、匹配模式）</p>
+</blockquote>
+<ul>
+<li>查阅值：要查找的值</li>
+<li>查阅值所在的区域：包含查阅值。<strong>查阅值应该始终位于所在区域的第一列</strong></li>
+<li>区域中包含返回值的列号：以 A2:C5 区域为例，A 为第一列，B 为第二列进行计数，依此类推</li>
+<li>匹配模式：近似匹配（TRUE）或完全匹配（FALSE）</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=VLOOKUP(A1, B1:D5, 2, FALSE)</td>
+<td>在 Bi 列中找到精确等于 A1 的行，返回对应的 Ci（以 B 为首列，C 为第 2 列）</td>
+</tr>
+<tr>
+<td>=IF(VLOOKUP(A1, B1:D5, 2, FALSE)=’C’, ‘找到’, ‘未找到’)</td>
+<td>在 Bi 列中找到精确等于 A1 的行，取出对应的 Ci，若 Ci 为 ‘C’，返回’找到’, 否则返回’未找到’。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-3-2-LOOKUP"><a href="#2-3-2-LOOKUP" class="headerlink" title="2.3.2 LOOKUP"></a>2.3.2 LOOKUP</h4><p>在单行区域或单列区域（称为“向量”）中查找值，然后返回第二个单行区域或单列区域中相同位置的值：</p>
+<blockquote>
+<p>LOOKUP(lookup_value, lookup_vector, [result_vector])</p>
+</blockquote>
+<ul>
+<li>lookup_value：LOOKUP 在第一个向量中搜索的值，可以是数字、文本、逻辑值、名称或对值的引用</li>
+<li><p>lookup_vector：只包含一行或一列的区域</p>
+<p>注：</p>
+<ul>
+<li>lookup_vector 中的值必须按升序排列：…, -2, -1, 0, 1, 2, …, A-Z, FALSE, TRUE；否则，LOOKUP 可能无法返回正确的值。 文本不区分大小写。</li>
+<li><p>如果 LOOKUP 函数找不到 lookup_value，则该函数会与 lookup_vector 中小于或等于 lookup_value 的最大值进行匹配。</p>
+</li>
+<li><p>如果 lookup_value 小于 lookup_vector 中的最小值，则 LOOKUP 会返回 #N/A 错误值</p>
+</li>
+</ul>
+</li>
+<li>result_vector：只包含一行或一列的区域，与 lookup_vector 大小必须相同</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=LOOKUP(C1, A1:A5, B1:B5)</td>
+<td>返回 A1:A5 中等于 C1 的行对应的 Bi</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-3-3-MATCH"><a href="#2-3-3-MATCH" class="headerlink" title="2.3.3 MATCH"></a>2.3.3 MATCH</h4><p>在选中单元格中搜索特定的项，然后返回该项在此区域中的相对位置：</p>
+<blockquote>
+<p>MATCH(lookup_value, lookup_array, [match_type])</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Match_type</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 或缺省</td>
+<td>查找小于或等于 lookup_value 的最大值。 lookup_array 参数中的值必须以升序排序</td>
+</tr>
+<tr>
+<td>0</td>
+<td>查找完全等于 lookup_value 的第一个值。 lookup_array 参数中的值可按任何顺序排列</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>查找大于或等于 lookup_value 的最小值。 lookup_array 参数中的值必须按降序排列</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=MATCH(“b”, {“a”,”b”,”c”}, 0)</td>
+<td>返回 “b” 在 {“a”,”b”,”c”} 中的相对位置</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-3-4-INDEX"><a href="#2-3-4-INDEX" class="headerlink" title="2.3.4 INDEX"></a>2.3.4 INDEX</h4><p>返回表格或区域中的值或值的引用：</p>
+<blockquote>
+<p>INDEX(array, row_num, [column_num])</p>
+</blockquote>
+<ul>
+<li>数组只包含一行或一列：相应的 row_num 或 column_num 参数是可选的</li>
+<li>数组具有多行和多列, 并且仅使用 row_num 或 column_num：返回数组中整个行或列的数组</li>
+<li>同时使用 row_num 和 column_num 参数：返回 row_num 和 column_num 交叉处的单元格中的值。该值必须在数组中，否则将返回 #REF! 错误。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=INDEX(A1:B5, 2, 3)</td>
+<td>返回 A1:B5 区域第 2 行第 3 列交叉处的值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-4-格式函数"><a href="#2-4-格式函数" class="headerlink" title="2.4 格式函数"></a>2.4 格式函数</h3><h4 id="2-4-1-IS"><a href="#2-4-1-IS" class="headerlink" title="2.4.1 IS"></a>2.4.1 IS</h4><p>检验指定值并根据结果返回 TRUE 或 FALSE：</p>
+<blockquote>
+<p>IS**(value)</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISBLANK</td>
+<td>值为空白单元格</td>
+</tr>
+<tr>
+<td>ISERR</td>
+<td>值为任意错误值（除去 #N/A）</td>
+</tr>
+<tr>
+<td>ISERROR</td>
+<td>值为任意错误值（#N/A、#VALUE!、#REF!、#DIV/0!、#NUM!、#NAME? 或 #NULL!）</td>
+</tr>
+<tr>
+<td>ISLOGICAL</td>
+<td>值为逻辑值</td>
+</tr>
+<tr>
+<td>ISNA</td>
+<td>值为错误值 #N/A（值不存在）</td>
+</tr>
+<tr>
+<td>ISNONTEXT</td>
+<td>值为不是文本的任意项。 （请注意，此函数在值为空单元格时返回 TRUE）</td>
+</tr>
+<tr>
+<td>ISNUMBER</td>
+<td>值为数字</td>
+</tr>
+<tr>
+<td>ISREF</td>
+<td>值为引用</td>
+</tr>
+<tr>
+<td>ISTEXT</td>
+<td>值为文本</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-4-2-LEFT-RIGHT-MID"><a href="#2-4-2-LEFT-RIGHT-MID" class="headerlink" title="2.4.2 LEFT/RIGHT/MID"></a>2.4.2 LEFT/RIGHT/MID</h4><p>文本字符串[从左起 | 从右起 | 字符串中的指定位置]第一个字符开始返回指定个数的字符：</p>
+<blockquote>
+<p>LEFT/RIGHT(text, [num_chars])<br>MID(text, start_num, num_chars)</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=LEFT/RIGHT(A1, 3)</td>
+<td>A1 左/右边第 1 个字符起，返回 3 个字符</td>
+</tr>
+<tr>
+<td>=MID(A1, 3, 5)</td>
+<td>A1 第 3 个字符起，返回 5 个字符</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Excel/" rel="tag"># Excel</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/20/mysql-practise/" rel="next" title="MySQL 实战问题">
+                <i class="fa fa-chevron-left"></i> MySQL 实战问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/10/06/report/" rel="prev" title="数据分析报告">
+                数据分析报告 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Json">
+            
+              <p class="site-author-name" itemprop="name">Json</p>
+              <div class="site-description motion-element" itemprop="description">Record & Share</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jsonww" title="GitHub &rarr; https://github.com/jsonww" rel="noopener" target="_blank"><i class="fa fa-fw fa-github modify"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/json.wong.work@gmail.com" title="E-Mail &rarr; json.wong.work@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Excel-快捷与函数"><span class="nav-number">1.</span> <span class="nav-text">Excel 快捷与函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-快捷"><span class="nav-number">1.1.</span> <span class="nav-text">1 快捷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-常用快捷操作"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 常用快捷操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-自动填充"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 自动填充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-锁定："><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 锁定：$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-函数"><span class="nav-number">1.2.</span> <span class="nav-text">2 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-假设函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 假设函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-IF"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">2.1.2 IF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-COUNT"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">2.1.3 COUNT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-COUNTIFS"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">2.1.4 COUNTIFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-5-SUMIF"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">2.1.5 SUMIF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-6-SUMIFS"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">2.1.6 SUMIFS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-数值函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 数值函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-SUM"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2.2.1 SUM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-SUMPRODUCT"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2.2.2 SUMPRODUCT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-ROUND（UP-DOWN）"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">2.2.3 ROUND（UP/DOWN）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-SUBTOTAL"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">2.2.4 SUBTOTAL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-5-LARGE"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">2.2.5 LARGE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-定位查找函数"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 定位查找函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-VLOOKUP"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">2.3.1 VLOOKUP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-LOOKUP"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">2.3.2 LOOKUP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-MATCH"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">2.3.3 MATCH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-4-INDEX"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">2.3.4 INDEX</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-格式函数"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 格式函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-IS"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">2.4.1 IS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-LEFT-RIGHT-MID"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">2.4.2 LEFT/RIGHT/MID</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+	
+	<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+	<div class="widget-wrap">
+	    <h3 class="widget-title">Tag Cloud</h3>
+	    <div id="myCanvasContainer" class="widget tagcloud">
+		<canvas width="250" height="250" id="resCanvas" style="width=100%">
+		    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/">chatgpt</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/collection/">collection</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter-notebook/">jupyter-notebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/new-bing/">new bing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/next/">next</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipfile/">pipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prompt/">prompt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/systemctl/">systemctl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/云服务器/">云服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据分析/">数据分析</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟环境/">虚拟环境</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计组/">计组</a><span class="tag-list-count">1</span></li></ul>
+		</canvas>
+	    </div>
+	</div>
+	
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-id-card-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Json</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">155k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:21</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

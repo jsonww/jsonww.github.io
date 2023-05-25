@@ -1,0 +1,2705 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/feather_pen_26.9312px_1231006_easyicon.net.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/feather_pen_13.4656px_1231006_easyicon.net.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '3OTURL0KQC',
+      apiKey: '',
+      indexName: 'count',
+      hits: {"per_page":6},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="[Updated]  本文基于《活用数据》整理了数据分析思维的相关内容。">
+<meta name="keywords" content="数据分析,collection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析思维">
+<meta property="og:url" content="https://jsonww.gitee.io/2021/09/30/active-data/index.html">
+<meta property="og:site_name" content="Json workspace">
+<meta property="og:description" content="[Updated]  本文基于《活用数据》整理了数据分析思维的相关内容。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-10-02T04:13:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析思维">
+<meta name="twitter:description" content="[Updated]  本文基于《活用数据》整理了数据分析思维的相关内容。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://jsonww.gitee.io/2021/09/30/active-data/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数据分析思维 | Json workspace</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Json workspace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">江畔何人初见月 江月何年初照人</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jsonww.gitee.io/2021/09/30/active-data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Json">
+      <meta itemprop="description" content="Record & Share">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Json workspace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据分析思维
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+	  
+ 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-09-30 23:19:42" itemprop="dateCreated datePublished" datetime="2021-09-30T23:19:42+08:00">2021-09-30</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-10-02 12:13:15" itemprop="dateModified" datetime="2021-10-02T12:13:15+08:00">2021-10-02</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据分析/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">18k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">16 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><font color="#008000"> [Updated] </font> 本文基于《活用数据》整理了数据分析思维的相关内容。</p>
+<a id="more"></a>
+<h1 id="数据分析思维"><a href="#数据分析思维" class="headerlink" title="数据分析思维"></a>数据分析思维</h1><h2 id="先行概念"><a href="#先行概念" class="headerlink" title="先行概念"></a>先行概念</h2><h3 id="市场营销"><a href="#市场营销" class="headerlink" title="市场营销"></a>市场营销</h3><p>企业在<strong>现有营销环境</strong>下，根据<strong>目标消费者的需求</strong>，利用<strong>现有的资源和能力</strong>，<strong>比竞争对手更快捷、更有效</strong>地向目标消费者提供产品和服务，实现企业盈利以及可持续发展的生产和经营活动。 <em>— 现代市场营销学之父 菲利普·科特勒</em></p>
+<p>为更好地驱动企业营销业务，围绕市场营销的定义展开作数据分析。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>案例</th>
+<th>角度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企业战略分析</td>
+<td>现有营销环境</td>
+</tr>
+<tr>
+<td>用户偏好分析</td>
+<td>目标消费者的需求</td>
+</tr>
+<tr>
+<td>STP</td>
+<td>目标消费者的需求</td>
+</tr>
+<tr>
+<td>品牌建设分析</td>
+<td>让消费者选择自己</td>
+</tr>
+<tr>
+<td>营销组合分析</td>
+<td>比竞争对手更快捷、更有效</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><p>定义：数据分析是实现研究目的与研究内容的闭环。</p>
+<p>做法：首先<a href="#分析哪些内容---开启分析思路">将研究目的分解为内容</a>，然后再<a href="#分析到什么程度---打开分析视角">通过研究内容实现研究目的</a>。</p>
+<p>具体流程：</p>
+<ol>
+<li>明确分析思路</li>
+<li>获取数据</li>
+<li>处理数据</li>
+<li>分析数据</li>
+<li>解读数据</li>
+</ol>
+<h3 id="定性分析与定量分析"><a href="#定性分析与定量分析" class="headerlink" title="定性分析与定量分析"></a>定性分析与定量分析</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>定性分析</td>
+<td>关注意义，能做梳理，不能作为选择</td>
+</tr>
+<tr>
+<td>定量分析</td>
+<td>关注频率，<strong>量化</strong>成具体数据作为指导</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h3><p>预测是推断的过程：</p>
+<ul>
+<li><p>由已知推断未知</p>
+<p>条件：已知和未知具有相似性（类推原则）或相关性（相关原则）。</p>
+</li>
+<li><p>由过去推断未来</p>
+<p>条件：市场具有惯性（惯性原则）。</p>
+</li>
+</ul>
+<p>预测的类型：</p>
+<ul>
+<li>定性预测：基于经验和判断推断，主观性强。</li>
+<li>定量预测：基于数据和模型推断，客观性强。基于同样的数据和模型，结论一定相同。</li>
+</ul>
+<p>推断思路：</p>
+<ol>
+<li>类推原则：</li>
+<li>相关原则</li>
+<li>惯性原则</li>
+</ol>
+<h2 id="解决什么问题-明确分析思维"><a href="#解决什么问题-明确分析思维" class="headerlink" title="解决什么问题 - 明确分析思维"></a>解决什么问题 - 明确分析思维</h2><ul>
+<li>识别机会</li>
+<li>规避风险</li>
+<li>问题诊断</li>
+<li>营销效果评价</li>
+<li>量化管理</li>
+</ul>
+<h2 id="分析哪些内容-开启分析思路"><a href="#分析哪些内容-开启分析思路" class="headerlink" title="分析哪些内容 - 开启分析思路"></a>分析哪些内容 - 开启分析思路</h2><h3 id="学会提问"><a href="#学会提问" class="headerlink" title="学会提问"></a>学会提问</h3><ol>
+<li><p>发散思维，头脑风暴，罗列出关键问题</p>
+</li>
+<li><p>MECE 原则（mutually exclusive collectively exhausted）</p>
+<p>分解出的各项内容相互独立，交集为空集；汇总在一起完全穷尽，并集是全集。</p>
+<ul>
+<li>核心：不重不漏</li>
+<li>方法：二分法…等</li>
+</ul>
+</li>
+<li><p>使用模型或结构化思维对罗列的关键问题进行归纳划分</p>
+</li>
+</ol>
+<h3 id="熟悉模型"><a href="#熟悉模型" class="headerlink" title="熟悉模型"></a>熟悉模型</h3><blockquote>
+<p>模型是经过长期检验的成熟的分析思路，灵活运用可以事半功倍。</p>
+</blockquote>
+<p>熟悉常用模型及其适用场景：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>适用场景</th>
+<th>模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顾客满意度</td>
+<td><a href="#RATER">RATER</a></td>
+</tr>
+<tr>
+<td>产品属性优先度</td>
+<td><a href="#KANO">KANO</a></td>
+</tr>
+<tr>
+<td>战略选择</td>
+<td><a href="#SWOT">SWOT</a></td>
+</tr>
+<tr>
+<td>战略选择</td>
+<td><a href="#IEF内外因素评价矩阵">IEF 内外因素评价矩阵</a></td>
+</tr>
+<tr>
+<td>用户行为</td>
+<td><a href="#用户行为五阶段、5W2H">用户行为五阶段、5W2H</a></td>
+</tr>
+<tr>
+<td>品牌形象</td>
+<td><a href="#品牌知觉图">品牌知觉图</a></td>
+</tr>
+<tr>
+<td>品牌知名度</td>
+<td><a href="#Graveyard">Graveyard</a></td>
+</tr>
+<tr>
+<td>定价决策</td>
+<td><a href="#PSM">PSM</a></td>
+</tr>
+<tr>
+<td>营销组合</td>
+<td><a href="#4P营销理论">4P营销理论</a></td>
+</tr>
+<tr>
+<td>用户转化</td>
+<td><a href="#AARRR">AARRR</a></td>
+</tr>
+<tr>
+<td>环境分析</td>
+<td><a href="#PEST">PEST</a></td>
+</tr>
+<tr>
+<td>市场分析</td>
+<td><a href="#波特五力">波特五力</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="结构化思维"><a href="#结构化思维" class="headerlink" title="结构化思维"></a>结构化思维</h3><h4 id="时间与结构思维"><a href="#时间与结构思维" class="headerlink" title="时间与结构思维"></a>时间与结构思维</h4><blockquote>
+<p>“四方上下曰宇，往古来今曰宙。”</p>
+</blockquote>
+<ul>
+<li>时间：事务的过程，即发展阶段</li>
+<li>结构：事务的方面，即构成要素</li>
+</ul>
+<h4 id="演绎思维"><a href="#演绎思维" class="headerlink" title="演绎思维"></a>演绎思维</h4><blockquote>
+<p>演绎而不是归纳。</p>
+</blockquote>
+<p>原因</p>
+<ol>
+<li>演绎：由共性原理（或假设）推出个性结论</li>
+<li>归纳：由个性推出共性</li>
+</ol>
+<p>标准式演绎 — 三段式</p>
+<ul>
+<li>大前提：已知共性原理（或假设），该原理（或假设）具有一般性和普遍性。</li>
+<li>小前提：关于对所研究对象的个性情况的描述。小前提应与大前提有关。</li>
+<li>结论：从共性原理（或假设）推出对所研究对象的具体判断。</li>
+</ul>
+<p>例如：（大前提）18 岁以上为成年人，（小前提）叶某今年 20 岁，（结论）那么叶某是成年人。</p>
+<p>常见式演绎 — 4W</p>
+<ol>
+<li>What’s going on? 描述现象</li>
+<li>Why did thits happen? 分析原因</li>
+<li>What lies ahead? 判断趋势</li>
+<li>Which course of action should i take? 提出对策</li>
+</ol>
+<h3 id="重要性思维"><a href="#重要性思维" class="headerlink" title="重要性思维"></a>重要性思维</h3><blockquote>
+<p>将资源花在关键改进点上。</p>
+</blockquote>
+<h2 id="分析到什么程度-打开分析视角"><a href="#分析到什么程度-打开分析视角" class="headerlink" title="分析到什么程度 - 打开分析视角"></a>分析到什么程度 - 打开分析视角</h2><h3 id="对比视角"><a href="#对比视角" class="headerlink" title="对比视角"></a>对比视角</h3><h4 id="对比类型"><a href="#对比类型" class="headerlink" title="对比类型"></a>对比类型</h4><ul>
+<li><p>参照物</p>
+<ul>
+<li>与自身纵向对比：过去和现在对比</li>
+<li>与其他横向对比：与同类或相似的其他对象对比</li>
+</ul>
+</li>
+<li><p>对比指标性质</p>
+<ul>
+<li>频数统计：分类型数据</li>
+<li>均值分析：数值型数据</li>
+</ul>
+</li>
+</ul>
+<h4 id="对比可信度"><a href="#对比可信度" class="headerlink" title="对比可信度"></a>对比可信度</h4><ul>
+<li><p>时间可比性：刨除特殊时段/时间粒度和长度一致。例如：夏天卖棉袄和冬天卖棉袄。</p>
+</li>
+<li><p>空间可比性：刨除特殊环境。例如：北极卖棉袄和赤道卖棉袄。</p>
+</li>
+<li><p>数量可比性：同量纲</p>
+<ol>
+<li><p>统一单位，使数据可比。例如：身高（cm）和体重(kg)。</p>
+<p>方法：变异系数法 — $v = \frac{\sigma}{\bar x}$，刻画单位平均水平下的差异。</p>
+</li>
+<li><p>剔除数量量级差异，使变量统一可比。例如：手掌长度与身高（接近 10 倍）。</p>
+<p>方法：变量标准化 — $Z = \frac{x - \mu}{\sigma}$，各变量均值和标准差都化为 0 和 1。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="分类视角"><a href="#分类视角" class="headerlink" title="分类视角"></a>分类视角</h3><h4 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h4><p>同类共性，异类区别，针对性营销。</p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>以客户分类为例：</p>
+<ol>
+<li>分类维度处理：标准化、<a href="#因子分析">因子分析</a></li>
+<li>客户细分检验：<a href="#聚类分析">聚类分析</a>、方差分析</li>
+<li>目标市场分析：<a href="#矩阵分析">矩阵分析</a></li>
+<li>目标客户定位：方差分析、交叉分析、比较分析、对应分析</li>
+</ol>
+<h3 id="相关视角"><a href="#相关视角" class="headerlink" title="相关视角"></a>相关视角</h3><h4 id="相关定义"><a href="#相关定义" class="headerlink" title="相关定义"></a>相关定义</h4><p>A 与 B 相关有以下情况：</p>
+<ol>
+<li>因果：A -&gt; B 或 B -&gt; A；</li>
+<li>共存：C -&gt; A <strong>且</strong> C -&gt; B。</li>
+</ol>
+<p><strong>注：要判断因果，先证相关性。</strong></p>
+<h4 id="相关判定"><a href="#相关判定" class="headerlink" title="相关判定"></a>相关判定</h4><ul>
+<li><p>数值型：相关系数 — $r(X, Y) = \frac{Cov(X ,Y)}{\sqrt{Var|X| Var|Y|}} = \frac{E|XY| - E|X|E|Y|}{\sqrt{Var|X| Var|Y|}}$</p>
+</li>
+<li><p>分类型：方差分析 — $SST（总体信息） = SSR（组间） + SSE（组内）$</p>
+<ul>
+<li>SSR 大 =&gt; 分组属性引起差异，相关</li>
+<li>SSE 大 =&gt; 分组属性以外的属性引起差异，无关</li>
+<li>综上，SSR 小，SSE 大 =&gt; 无关，不存在显著差异</li>
+<li>若 P(SSR = 0) &lt; 0.05，拒绝假设“SSR = 0”，即拒绝“无关”，则表明“相关”，即“存在差异”</li>
+</ul>
+</li>
+</ul>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><ol>
+<li><p>规模预测</p>
+<p>例如：道格拉斯生产函数 $y = A K^\alpha L^\beta \mu，A-技术，K-资本，L-劳动力，\alpha 、\beta-弹性系数，\mu-干扰因子$</p>
+</li>
+<li><p>精准预测</p>
+<p>例如：方差分析（验证相关） + 交叉分析（偏好差异），对不同用户群体进行精准营销。</p>
+</li>
+</ol>
+<h3 id="描述视角"><a href="#描述视角" class="headerlink" title="描述视角"></a>描述视角</h3><h4 id="整体趋势"><a href="#整体趋势" class="headerlink" title="整体趋势"></a>整体趋势</h4><ul>
+<li>集中趋势：加权平均分 $\bar x = \frac{\sum x_i f_i}{i}$</li>
+<li>离中趋势：变异系数 $v = \frac{\sigma}{x}$</li>
+</ul>
+<h4 id="个体波动"><a href="#个体波动" class="headerlink" title="个体波动"></a>个体波动</h4><ol>
+<li>研究单独个体</li>
+<li>离群、异常发现</li>
+<li>研究个体间差异</li>
+</ol>
+<h3 id="具体业务中的视角选择"><a href="#具体业务中的视角选择" class="headerlink" title="具体业务中的视角选择"></a>具体业务中的视角选择</h3><p>不同层次组合应用。</p>
+<hr>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h3 id="RATER"><a href="#RATER" class="headerlink" title="RATER"></a>RATER</h3><p>客户满意度模型：</p>
+<ul>
+<li><p>硬实力</p>
+<ul>
+<li><p>外在：Tangible 有形度</p>
+<p>有形的服务设施、环境、服务人员的仪表以及对客户的帮助和关怀的有形表现。</p>
+</li>
+<li><p>内在：Assurances 专业度</p>
+<p>企业的服务人员所具备的专业知识、技能和职业素质。</p>
+</li>
+</ul>
+</li>
+<li><p>软实力</p>
+<ul>
+<li><p>外在：Responsiveness 反应度</p>
+<p>服务人员对于客户的需求给予及时反应并能迅速提供服务的愿望。</p>
+</li>
+<li><p>内在：</p>
+<ul>
+<li><p>Reliability 信赖度</p>
+<p>企业是否能够始终如一地履行自己对客户所做出的承诺，获得良好的口碑与客户的信赖。</p>
+</li>
+<li><p>Empathy 同理度</p>
+<p>服务人员能够随时设身处地地为客户着想，真正地同情理解客户的处境，了解客户的需求。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="KANO"><a href="#KANO" class="headerlink" title="KANO"></a>KANO</h3><p>属性分类：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+<th>用户情绪</th>
+<th>重要性</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>必备属性 M（Must be）</td>
+<td>产品或服务的最核心的属性</td>
+<td>有则无感，无则厌恶</td>
+<td>1 +</td>
+<td>手机能打电话</td>
+</tr>
+<tr>
+<td>一维属性 O（One-dimensional）</td>
+<td>与用户态度线性正相关的属性</td>
+<td>有则好感，无则厌恶</td>
+<td>2 \</td>
+<td></td>
+<td>手机电池快充</td>
+</tr>
+<tr>
+<td>魅力属性 A（Attractive）</td>
+<td>用户期望的属性</td>
+<td>有则喜，无无感</td>
+<td>3 \</td>
+<td></td>
+<td>手机高刷新率</td>
+</tr>
+<tr>
+<td>可有可无属性 I（Inessential）</td>
+<td>无论是否具备该属性，用户都无所谓</td>
+<td>有无皆无感，无关紧要</td>
+<td>4 -</td>
+<td>手机编程</td>
+</tr>
+<tr>
+<td>厌恶属性 R（Repugnant）</td>
+<td>具备了反而让用户不满</td>
+<td>有则厌恶，无则无感</td>
+<td>× 不该有</td>
+<td>手机上传隐私数据</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>两大原则确定新产品的属性开发顺序：</p>
+<ol>
+<li><p>优先原则（M &gt; O &gt; A &gt; I）</p>
+<p>产品研发人员的优先研发顺序：必备属性 &gt; 一维属性 &gt; 魅力属性 &gt; 可有可无属性。</p>
+</li>
+<li><p>组合原则(M + O + A)</p>
+<p>有竞争力的产品应尤三部分组成：必须满足用户的必备属性 + 领先竞争对手的一维属性 + 差异化的魅力属性。</p>
+</li>
+</ol>
+<p>注意事项：</p>
+<ol>
+<li><p>用户的差异性</p>
+<p>对于同一个属性，不同用户的态度是不同的。</p>
+<ul>
+<li>在已知产品细分市场的前提下，针对不同的细分市场进行 KANO 分析</li>
+<li>在不清楚细分市场的前提下，根据 KANO 分析结果对用户需求进行市场细分，以便对不同细分市场提供不同功能的产品或服务</li>
+</ul>
+</li>
+<li><p>用户需求的发展性</p>
+<p>对于同一个属性，其属性不可能恒定不变。即使是创新属性也可能随业界发展变成通用标准，变成一维属性或必备属性。因此，产品或服务的设计者需要进行连续性的 KANO 调查，以把握用户需求的发展和变化。</p>
+</li>
+</ol>
+<h3 id="SWOT"><a href="#SWOT" class="headerlink" title="SWOT"></a>SWOT</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>内部\外部</th>
+<th>Strength（优势）</th>
+<th>Weakness（弱势）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opportunity（机会）</td>
+<td>SO</td>
+<td>WO</td>
+</tr>
+<tr>
+<td>Threaten（威胁）</td>
+<td>ST</td>
+<td>WT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="IEF内外因素评价矩阵"><a href="#IEF内外因素评价矩阵" class="headerlink" title="IEF内外因素评价矩阵"></a>IEF内外因素评价矩阵</h3><p>IEF 内外因素评价矩阵用来对于 SWOT 分析中的数据进行量化：</p>
+<ol>
+<li>分别计算割割因素的评分和权重</li>
+<li>分别计算机会、威胁、优势、劣势的加权平均数</li>
+<li>用加权平均数的大小判断市场吸引力和企业竞争力，并给出相应的战略建议</li>
+</ol>
+<p>评分数据来源:</p>
+<ul>
+<li>专家访谈：专家适合对具体研究的<strong>企业外部因素</strong>（<a href="#pest">PEST</a>）进行评分。</li>
+<li>市场调研：消费者对产品或服务有切身体验，适合对<strong>企业内部因素</strong>评分。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>权重确定法</strong></th>
+<th>主观赋权法</th>
+<th>客观赋权法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>思路与优缺点</td>
+<td>专家经验主观判断；定性；简单</td>
+<td>历史数据研究评价；定量；复杂</td>
+</tr>
+<tr>
+<td>常用方法</td>
+<td>层次分析法</td>
+<td>主成分分析法（或因子分析法）</td>
+</tr>
+<tr>
+<td>其他方法</td>
+<td>环比评分法、最小平方法</td>
+<td>变异系数法、回归分析</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>权重计算：</p>
+<ol>
+<li>计算平均分：$\bar{x} = \frac{\sum x_i}{n}$</li>
+<li>计算频率：$p_i = \frac{n_i}{n}$</li>
+<li>计算方差：$\sigma_i = \frac{\sum(x_i - \bar{x})^2 p_i}{n}$</li>
+<li>计算变异系数：$v_i = \frac{v_i}{\sigma_i}$</li>
+<li>计算权重：$\omega_i = \frac{v_i}{\sum v_i}$</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>内部\外部</th>
+<th>Strength（优势）</th>
+<th>Weakness（弱势）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opportunity（机会）</td>
+<td>SO</td>
+<td>WO</td>
+</tr>
+<tr>
+<td>Threaten（威胁）</td>
+<td>ST</td>
+<td>WT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="用户行为五阶段、5W2H"><a href="#用户行为五阶段、5W2H" class="headerlink" title="用户行为五阶段、5W2H"></a>用户行为五阶段、5W2H</h3><p>用户行为五阶段：</p>
+<ol>
+<li>产生需求</li>
+<li>信息收集</li>
+<li>方案比选</li>
+<li>购买决策</li>
+<li>购后行为</li>
+</ol>
+<p>5W2H：</p>
+<ul>
+<li>When 时间</li>
+<li>Where 地点</li>
+<li>Who 对象</li>
+<li>What 事件</li>
+<li>Why 原因</li>
+<li>How 方式</li>
+<li>How much 程度</li>
+</ul>
+<h3 id="品牌知觉图"><a href="#品牌知觉图" class="headerlink" title="品牌知觉图"></a>品牌知觉图</h3><p>品牌知觉图用于品牌形象分析，是指基于<strong>品牌形象数据</strong>用距离远近反映品牌与精神价值相关程度的图形。距离越近，表示相关程度越大。</p>
+<p>解读方法：</p>
+<ul>
+<li><p>圆心定理 - 最符合品牌的形象</p>
+<p>以各品牌为圆心，最先圈进去的指标就是最符合该品牌定位的精神价值。</p>
+</li>
+<li><p>向量分析 - 品牌具有某形象的程度</p>
+<ol>
+<li>从原点向任一指标画一条射线，构成一个向量；</li>
+<li>然后将所有品牌对这个向量做垂线；</li>
+<li>垂点越靠近向量箭头指向的指标，表明该产品越具有该指标描述的形象。</li>
+</ol>
+</li>
+<li><p>余弦定理 - 品牌定位相似性/竞争性</p>
+<p>从原点向任意两品牌分别画一条射线，构成两个向量。向量夹角越小，则夹角余弦越大，表明两个品牌相关性越强，定位相似性高，具有竞争关系。</p>
+</li>
+<li><p>原点定理 - 品牌差异性</p>
+<ul>
+<li>越远离原点的品牌，消费者越容易识别，说明品牌的特征越明显；</li>
+<li>越靠近原点的品牌，消费者越不容易识别，说明品牌没有显著特征，越缺乏差异化认知。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Graveyard"><a href="#Graveyard" class="headerlink" title="Graveyard"></a>Graveyard</h3><p>Graveyard 模型能够反映提示前知名度和提示后知名度之间的内在关系。</p>
+<ol>
+<li>提示后知名度为横坐标，提示前知名度为纵坐标。</li>
+<li><p>回归拟合曲线体现了品牌变化发展的总体趋势和平均发展水平，分布在该回归拟合线周围的品牌则体现了各品牌相对于平均发展水平的波动和差异。</p>
+<ul>
+<li>正常品牌：位于回归曲线<strong>周围</strong>，品牌知名度与市场上的平均水平比较一致。</li>
+<li>衰退品牌：位于回归曲线<strong>右下方</strong>，其提示前知名度明显低于提示后知名度，显现出该品牌被消费者淡忘的趋势。</li>
+<li>利基品牌：位于回归曲线<strong>左上方</strong>，其提示前知名度高于提示后知名度，虽然品牌认知率相对不高，但是品牌回忆率较高，消费者对其忠诚度较高。</li>
+<li>强势品牌：位于回归曲线<strong>右上方</strong>，其提示前知名度和提示后知名度都很高，消费者对其忠诚度很高，这些大都是市场上的强势品牌。</li>
+</ul>
+</li>
+</ol>
+<p>制作方法:</p>
+<ol>
+<li>先计算各品牌提示前知名度和提示后知名度；</li>
+<li>以提示后知名度为 X 轴、提示前知名度为 Y 轴绘制散点图，每个点代表一个品牌；</li>
+<li>对散点做回归拟合线。 </li>
+</ol>
+<h3 id="PSM"><a href="#PSM" class="headerlink" title="PSM"></a>PSM</h3><p>PSM（Price Sensitivity Measurement）模型即价格敏感度测试模型。利用 PSM 模型测试价格，不需要预先给出价格，而是让受访者自己表示他们可接受的价格范围。</p>
+<p>模型搭建</p>
+<ol>
+<li>出示新品 demo 或概念后，询问 4 个问题：<ol>
+<li>哪个价格让你开始觉得便宜？</li>
+<li>哪个价格让你开始觉得贵？</li>
+<li>哪个价格让你开始觉得太贵而不买？</li>
+<li>哪个价格让你觉得太便宜，不相信它的质量而不买?</li>
+</ol>
+</li>
+<li>根据受访者回答，统计出每个价格在上述 4 个问题上的累计人数百分比</li>
+<li>根据每个价格（X 轴）的累计人数百分比（Y 轴）绘图，得到四条相交曲线</li>
+<li><p>由图可确定</p>
+<ul>
+<li><p>两条相交曲线与其交点所构成的上方区域表示接受该交点对应的价格水平的市场规模</p>
+</li>
+<li><p>最优价格点</p>
+<p>两条曲线与交点构成的上方区域面积最大的交点价格即最优价格点。</p>
+</li>
+<li><p>可接受价格点</p>
+<p>“开始觉得便宜”曲线和“开始觉得贵”曲线的交点。</p>
+</li>
+<li><p>可接受价格区间</p>
+<p>曲线所谓区域的左右端点价格。</p>
+<p>证明：</p>
+<ol>
+<li>最优价格点和可接受价格点都在该区域内；</li>
+<li>对于端点，“觉得太贵而不买”和“觉得太便宜而不买”的人数增幅大于“开始觉得便宜”和“开始觉得贵”，导致整体市场规模减小；</li>
+<li>因此端点价格即可接受价格区间。</li>
+</ol>
+</li>
+<li><p>不同市场的规模</p>
+<p>设：</p>
+<ul>
+<li>A = 开始觉得便宜的累计人数百分比</li>
+<li>B = 觉得太便宜而不买的累计人数百分比</li>
+<li>C = 开始觉得贵的累计人数百分比</li>
+<li>D = 觉得太贵而不买的累计人数百分比</li>
+</ul>
+<p>有：</p>
+<ul>
+<li>$可接受者 = 1 - A - C$：对于该价格不觉得贵也不觉得便宜的人数比例</li>
+<li>$保留接收者 = A - B + C - D$：对于该价格觉得贵但是不太贵或者觉得便宜但是不太便宜的人数比例。</li>
+<li>$不接受者 = B + D$：觉得该价格太贵或太便宜而不买的人数比例。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="4P-营销理论"><a href="#4P-营销理论" class="headerlink" title="4P 营销理论"></a>4P 营销理论</h3><p>产品、价格、渠道、促销合成营销组合。通过营销组合，企业引导商品或服务从生产者到达消费者的决策活动成为营销决策。做出科学的营销决策就需要平衡好<em>做好产品</em>、<em>定好价格</em>、<em>铺好渠道</em>、<em>打好促销</em>这四个方面。</p>
+<ul>
+<li><p>Product 产品</p>
+<ul>
+<li><p>规模预测分析：季节分解法</p>
+<p>如何决定生产规模？</p>
+<ol>
+<li><p>该生产多少？</p>
+<p>在市场经济环境下，该生产多少由市场需求决定，需要预测市场规模。</p>
+</li>
+<li><p>能生产多少？</p>
+<p>在资源约束环境下，能生产多少是由企业所拥有的生产要素决定的，需要预测产出规模。</p>
+</li>
+</ol>
+<p>市场规模预测和产出规模预测统称“规模预测”。</p>
+</li>
+<li><p>产品属性分析：<a href="#kano">KANO 模型</a></p>
+<p>根据市场所需要的产品属性及其需求程度，挖掘消费者对产品的核心需求与偏好，明确产品属性开发优先级。</p>
+</li>
+</ul>
+</li>
+<li><p>Price 定价</p>
+<p>定价既是产品优劣的反映，也是顾客眼中的产品价值，是产品的竞争性定位和销售力的体现。</p>
+<p>定佳决策分析：<a href="#psm">PSM</a></p>
+</li>
+<li><p>Place 渠道</p>
+<p>渠道价值分析 - “渠道为王”，是影响企业能否赢得市场的一个重要竞争力。在多渠道共同发生作用时，只有准确地对每个渠道的价值进行评价，才能做好渠道资源分配，实现效益最大化。</p>
+</li>
+<li><p>Promotion 促销</p>
+<p>营销者向消费者传递有关本企业及产品的各种消息，说服或吸引消费者购买其产品，以达到扩大销售量的目的。为了达到促销目的，通常会在约束条件下搭配媒体组合使传播效果最优，常用线性规划解决。</p>
+<p>资源配置三要素：</p>
+<ol>
+<li>目标函数</li>
+<li>约束条件</li>
+<li>决策变量</li>
+</ol>
+<p>资源配置方法：线性规划</p>
+</li>
+</ul>
+<h3 id="AARRR"><a href="#AARRR" class="headerlink" title="AARRR"></a>AARRR</h3><p>用户生存周期可归纳为 AARRR 漏斗模型。</p>
+<h4 id="Acquisition-获取"><a href="#Acquisition-获取" class="headerlink" title="Acquisition 获取"></a>Acquisition 获取</h4><p>关键：降低用户的使用门槛，结合不同阶段用户群体的特征，制定最适合的拉新策略，同时时刻关注各个核心数据指标；而不是考虑各种渠道推广引流。</p>
+<ul>
+<li><p>产品角度</p>
+<ol>
+<li><p>简化注册登录流程</p>
+<p>账号强相关产品可采取手机+短信验证码快捷注册登陆；非账号强相关产品可在用户体验核心功能时才要求注册登录。</p>
+</li>
+<li><p>滞后权限授权</p>
+<p>体验相关功能时才进行授权；安装后第一时间授权影响体验。</p>
+</li>
+</ol>
+</li>
+<li><p>用户初次进行产品介绍/操作指引</p>
+<p>适量（&lt;=4）的页面/流程介绍核心/优质内容，复杂功能进行操作指引降低使用门槛；忌繁琐冗长。</p>
+</li>
+<li><p>运营角度</p>
+<p>产品不同阶段中用户群体的特征不同，可从冷启动期/增长期/稳定期/衰退期四个阶段看：</p>
+<ol>
+<li><p>冷启动期</p>
+<p>现状：只有第一批少量用户。</p>
+<p>措施：关注用户质量而非数量，打造用户交流社区，评估核心用户的反馈，对产品进行打磨。</p>
+<p>关注指标: DAU、留存、活跃时长。</p>
+</li>
+<li><p>增长期</p>
+<p>现状：产品经过冷启动期的打磨得到核心用户认证，开始进入飞速增长阶段。</p>
+<p>措施：结合目标群体的普遍特征，寻找合适的渠道进行推广引流。</p>
+<p>关注指标：ROI — 以以尽可能少的成本，获取高质量的用户。</p>
+</li>
+<li><p>稳定期</p>
+<p>现状：由于产品用户群体的不同，产品的用户规模达到增长瓶颈。</p>
+<p>措施：寻找产品是否有延展方向，通过需求的延展获取更多用户。</p>
+<p>关注指标: 用户留存。</p>
+</li>
+<li><p>衰退期</p>
+<p>现状：产品早晚会步入衰退期，用户慢慢转移至其他替代产品，用户数量逐渐降低。流失用户的召回存在于每个时期，在此阶段则尤为重要，往往需要面临较大的困难与成本守住用户流量。</p>
+<p>措施：召回流失用户，减缓产品的衰退。可从四个角度召回：</p>
+<ol>
+<li>利益驱动召回：优惠券、礼品、抽奖等活动；</li>
+<li>社交属性召回：社交联动（关注、评论、邀请）；</li>
+<li>产品核心需求召回：周期性收益产品查看/获取收益；</li>
+<li>新功能刺激召回：版本重大更新、新功能。</li>
+</ol>
+<p>关注指标: 召回率，流失指标。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="Activation-激活"><a href="#Activation-激活" class="headerlink" title="Activation 激活"></a>Activation 激活</h4><p>注：激活 != 用户注册。对于账号强相关的产品，可以将注册作为用户激活的一个参考依据。从整体上来讲，用户激活更应该考虑的是<strong>用户对于产品核心功能的使用情况</strong>。比如：微博用户活跃情况、抖音用户短视频观看情况。</p>
+<p>关键：</p>
+<ol>
+<li>找到自己产品用户激活的标准。</li>
+<li>根据产品的类型特点，做对应的产品模块设计，同时辅以运营活动，创造用户可触达的需求场景，进而达成目标，激活用户。</li>
+<li>关注核心指标，而非一味提高用户注册量。</li>
+</ol>
+<p>不同类型的产品用户群体不同，用户激活的方法也不尽不同，整体上可分为三种类型进行讨论：</p>
+<ul>
+<li><p>单用户产品</p>
+<p>单用户产品：服务于个人用户，没有过多的不同用户之间的接触以及不同角色的产品。大致可分为两类：</p>
+<ul>
+<li><p>工具类</p>
+<p>核心：便捷使用，舒适体验。</p>
+<ol>
+<li>工具产品需要拿来即用，所以必须简化流程，让用户速上手。</li>
+<li>工具产品设计应该符合生活中的逻辑，降低使用门槛，增强用户体验。</li>
+</ol>
+</li>
+<li><p>游戏</p>
+<p>核心：提升代入感。</p>
+<ol>
+<li>合适的玩家指引：无论单人还是网络游戏，玩家在游戏初期都存在认知的过程，应该尽快让玩家了解规则，体验游戏。</li>
+<li>由浅入深的体验：游戏初期应该给予玩家适应的过程，初期可以降低游戏的难度和复杂度，先保证游戏体验，待其适应再逐步放开。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>多用户产品</p>
+<p>多用户产品：多用户接触的产品。根据用户关系，分为两个不同的类型：</p>
+<ul>
+<li><p>熟人产品</p>
+<p>核心：获取熟人的联系。</p>
+<p>作为通讯类产品若不能及时联系到熟人，就没有沟通对象，则失去使用意义。例如：微信能够通过手机通讯录和 QQ 好友快速建立起与熟人之间的联系，开启新的通讯体验，所以很快获取了大量的用户。若新的通讯 APP 需要通过一套新的 ID 标识（与原本的联系方式无关联）去相互添加才能使用，这无疑增加了使用成本。</p>
+</li>
+<li><p>陌生人产品</p>
+<p>核心：搭建起陌生人之间的联系，即用户品配。</p>
+<ol>
+<li><p>水军：投放一定的虚拟用户，用于激活前期为用户创造需求场景。但随着用户体验的深入，水军会被用户察觉并反感，因此只适用于激活前期。</p>
+</li>
+<li><p>用户匹配：通过为用户匹配或者推荐用户，促成用户之间的联系，进一步沉浸于产品中，达成用户激活。常见的匹配策略：LBS 匹配/用户属性匹配/个性化推荐匹配。</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>多角色产品</p>
+<p>多角色产品：多用户产品且用户存在不同角色。如：美团 — 既有商家也有买家；Uber — 既有司机也有乘客。</p>
+<p>核心：激活各方用户，并达成多角色之间的平衡连接。以 Uber 为例：通过首次免单吸引乘客；通过算法实现多订单下司机与乘客的合理匹配，保证供需的稳定；通过司机补助、乘客优惠促成订单的产生。</p>
+<p>可通过核心指标进行用户的激活与连接情况：</p>
+<ol>
+<li>用户激活率：即用户使用核心功能的占比。各产品的激活定义规则不尽相同，每个产品都必须找到适合自己的激活定义；</li>
+<li>用户激活花费时长：用用户从进入产品，到被激活所花费的时间。时间越短，证明激活效果越明显；</li>
+<li>DAU/MAU：用户日活跃/月活跃的比值。不同类型的产品的 DAU/MAU 存在一定的基准线，如移动游戏的基准线为20%，工具类APP为40%。比值越大，说明用户对于产品的粘性越强，激活效果越明显；</li>
+<li>DAOT：用户日均使用时长。使用时长越长，说明用户的粘性越强，但同时需结合其他指标，评估是否产品流程过长导致的时长增加。</li>
+</ol>
+</li>
+</ul>
+<h4 id="Retention-留存"><a href="#Retention-留存" class="headerlink" title="Retention 留存"></a>Retention 留存</h4><p>用户留存在任何时期都是评估产品是否真正具有价值的重要因素。只有用户感到了价值，才会选择留下了。</p>
+<p>关键：使用户持续使用产品，形成稳定的依赖。</p>
+<p>有效地评估产品的留存水平的指标：</p>
+<ol>
+<li><p>第 N 天计算法</p>
+<ul>
+<li>次日留存：统计日新增用户次日仍然使用产品的用户数量占总新增用户数量的比例；</li>
+<li>7 天留存：统计日新增用户第七天仍然使用产品的用户数量占总新增用户数量的比例；</li>
+<li>30 天留存：统计日新增用户第七天仍然使用产品的用户数量占总新增用户数量的比例。</li>
+</ul>
+<p>强调第N天，其反应的结果也就是随着时间的推移，留存用户逐渐减少，而行业上也存在着对应较为权威的基准 4-2-1 基准，也即40%/20%/10% 为此计算方法下，较为合理的一个水平。</p>
+</li>
+<li><p>N 天内计算法</p>
+<ul>
+<li>次日留存：统计日新增用户次日仍然使用产品的用户数量占总新增用户数量的比例；</li>
+<li>7 天留存：统计日新增用户7天内，再次使用产品的用户数量占总新增用户数量的比例；</li>
+<li>30 天留存：统计日新增用户30天内，再次使用产品的用户数量占总新增用户数量的比例。</li>
+</ul>
+<p>强调N天内，其反应的结果就是30天留存 &gt; 7天留存 &gt; 次日留存，更多的是表现一个产品的活跃水平。</p>
+</li>
+<li><p>改良后第N天计算法：</p>
+<ul>
+<li>次日留存：统计日新增用户，再次使用产品的时间间隔小于24小时的用户所占比例（T+2出数据指标）；</li>
+<li>7天留存：统计日新增用户，再次使用产品的时间间隔小于7个自然天然填的用户所占比例（T+8出数据指标）；</li>
+<li>30天留存：统计日新增用户，再次使用产品的时间间隔小于30个自然天然填的用户所占比例（T+8出数据指标）。</li>
+</ul>
+<p>改良后的第N天计算法，可以准确地反映新增用户的留存水平，避免特殊场景造成的数据指标影响。</p>
+</li>
+<li><p>改良后N天内计算法：</p>
+<ul>
+<li>次日留存：统计日活跃用户中，次日再次使用产品的用户占比（T+2出数据指标）；</li>
+<li>7天留存：统计日活跃用户中，往后7天内再次使用产品的用户占比（T+8出数据指标）；</li>
+<li>30天留存：统计日活跃用户中，往后30天内再次使用产品的用户占比（T+8出数据指标）。</li>
+</ul>
+<p>针对N天内计算法，由于计算方式反映的更多是产品的活跃水平，并不单纯针对新增用户，产品的迭代过程中，往往会有很多核心功能/用户体验等的改变，想要真实观察产品迭代过程中的留存活跃情况，应当将用户群体进行扩展。</p>
+<p>改良后的N天内计算法，更能清晰/完整地表现所有用户的活跃留存情况。</p>
+</li>
+<li><p>留存标准</p>
+<p>不应该盲目套用，而是应该结合自身产品所处的行业、产品形态以及自身产品定位进行考虑。</p>
+</li>
+</ol>
+<p>提升留存的方向:</p>
+<ol>
+<li><p>产品方向</p>
+<ol>
+<li>提升自己产品的竞争力，不断满足用户的需求，并优化用户体验。</li>
+<li>提升用户对于产品的粘性。<ul>
+<li>日常活跃功能：培养用户习惯。如：日常签到及其奖励体系。</li>
+<li>用户激励体系：鼓励用户行为，并给予认可的反馈，激励用户，成正向循环。如：用户头衔、用户等级。</li>
+<li>强化用户投入：沉淀用户在产品上的行为，使用户对产品产生依赖。即使后来出现竞品，用户也不会轻易放弃。如：<ul>
+<li>时间投入：通过阶段性的任务，量化并强调用户的时间投入，使用户不甘放弃；</li>
+<li>金钱投入：通过年度会员/月度会员等，强化用户的金钱投入，增加用户离平台的损失；</li>
+<li>内容投入：通过 UGC 内容的沉淀，强化用户的内容投入，比如微博/朋友圈/笔记类产品等，用户在使用过程中沉淀了大量的内容，不会轻易放弃；</li>
+<li>情感投入：通过引导用户投入情感，产生精神寄托；</li>
+<li>社交投入：通过形成稳定的圈子关系，强化用户的社交投入，比如微信等社交平台。社交关系越牢靠，用户对于产品的依赖性也越强。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>运营方向</p>
+<ol>
+<li><p>用户挽留：减少用户的流失</p>
+<ol>
+<li>明确产品定位及核心竞争力</li>
+<li>从流失用户和活跃用户的特征入手，分析用户流失原因</li>
+<li>结合二者制定优化方案</li>
+</ol>
+</li>
+<li><p>用户召回：召回已流失用户</p>
+<p>召回的两个契机：</p>
+<ol>
+<li><p>让用户看到</p>
+<ul>
+<li>数据关联：通过输入法/浏览记录等，获取并及时为用户推送感兴趣的产品或内容</li>
+<li>关注内容发生变动：当用户关注/收藏的内容发生更新变化时，及时推送用户</li>
+<li>特定时间段/时间点：固定时间点（节日/生日等），向用户推送相关内容</li>
+<li>用户场景变化：当用户所处场景（城市/天气等）发生切换时推送相关内容</li>
+</ul>
+</li>
+<li><p>让用户想起</p>
+<p>要达到让用户主动回想，需要结合产品的调性，长期的诱导或宣传，促使用户的生活记忆与产品产生联系并不断加深认知。</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="Revenue-变现"><a href="#Revenue-变现" class="headerlink" title="Revenue 变现"></a>Revenue 变现</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>用户群体区分</th>
+<th>基本特征</th>
+<th>合适的变现方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费用户</td>
+<td>固有思维“互联网免费”，基本不进行消费行为</td>
+<td>流量变现；观念引导成为付费用户</td>
+</tr>
+<tr>
+<td>普通用户</td>
+<td>有一定的消费行为及消费意识，挖掘潜力大</td>
+<td>诱导持续消费行为，提高消费额度和频次，养成消费习惯</td>
+</tr>
+<tr>
+<td>优质用户</td>
+<td>消费金额远大于实际价值，注重精神感受</td>
+<td>维护消费后的用户体验，给予特殊待遇</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>变现方式：</p>
+<ol>
+<li><p>产品及服务变现</p>
+<p>通过与用户直接建立传统买卖关系或为用户提供付费服务获得盈利。</p>
+<p>关键：</p>
+<ol>
+<li>提高产品的核心竞争力（前提）</li>
+<li><p>找到免费与付费的平衡</p>
+<p>平衡在于满足免费用户基本需求的同时，而使付费用户有所收获。在明确用户需求的基础上，对预期需求进行免费，在预期之外的需求（特色服务、体验升级）进行收费。</p>
+</li>
+<li><p>付费行为引导培养</p>
+<p>上瘾模型及激励策略可以培养用户付费行为，诱导用户提升消费额度和频次，提高产品及服务变现的效率。</p>
+<p>上瘾模型：使用户的某些行为发展为习惯。</p>
+<ol>
+<li>触发 - 为用户创造一个场景，使其产生我们想要培养的行为。如：产品和服务的试用。</li>
+<li>行动 - 用户产生培养行为。如：通过一元体验活动开启会员服务。</li>
+<li>激励 - 在用户产生培养行为给予正向反馈。如：给予荣誉成就（精神）或红包（物质）等奖励。</li>
+<li>投入 - 引导用户进行付费后的产品体验，沉浸用户的行为成本，增加用户产生持续付费的可能。如：购物礼品卡（单次抵消额度有限），定时提醒余额和限期。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>流量变现</p>
+<ol>
+<li><p>广告变现：基于用户，通过广告定向投放进行变现。</p>
+<p>现代化广告三要点:</p>
+<ol>
+<li>用户精准 - 精准找到广告的目标用户群体，提升触达有效率；</li>
+<li>时间精准 - 相同的广告，在用户休闲的情况下，往往能够促成转化；在用户忙碌的情况下，更有可能的则是造成骚扰，引起反感；</li>
+<li>场景精准 - 适当的场景下，往往更能促成广告的转化。如：购买手机时推荐耳机。</li>
+</ol>
+</li>
+<li><p>数据变现：基于用户行为活动，通过用户行为脱敏，抽取过滤加工，形成有效、可利用的数据，通过数据的运用或商业转让，获取盈利。<strong>并非卖数据。</strong></p>
+<p>构建用户画像，掌握用户的付费意愿及付费倾向，精准把控用户需求，提供推荐或服务，从而获取盈利。还可以根据相似性，进行关联推荐。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>相关指标：</p>
+<ol>
+<li><p>LTV：客户终生价值，</p>
+<p>公司从用户生命周期中所得到的全部经济收益的总和，即从用户上手到离开产品所获取的总收益。</p>
+</li>
+<li><p>用户付费率：付费用户群体在活跃用户群体中所占规模比例。</p>
+<p>一旦用户产生付费行为，便成为付费用户。该指标往往用来衡量产品的付费模块是否能够真正触达用户需求。</p>
+</li>
+<li><p>二次付费率：付费用户群体中，产生过二次及以上付费行为的用户所占规模比例。</p>
+<p>通过观察二次付费率指标，可以评估产品付费模块是否对用户产生正向价值？付费体验是否良好？</p>
+</li>
+<li><p>ARPU 及 ARRPU：（通常以月份为维度进行统计）ARPU是指平均每用户收入，ARRPU是指平均每活跃用户收入。</p>
+<p>用以以评估不用渠道的用户质量，不同时期的用户付费情况。</p>
+</li>
+</ol>
+<h4 id="Referral-传播"><a href="#Referral-传播" class="headerlink" title="Referral 传播"></a>Referral 传播</h4><p>自传播：无需借助过多外力，产品自身激发用户间的自发传播。</p>
+<p>自传播优势：</p>
+<ol>
+<li>指数级增长（一传十，十传百）</li>
+<li>用户获取成本低（用户自行推荐节省了渠道成本）</li>
+<li>用户获取质量高（自传播在相似的用户群体中进行）</li>
+<li>口碑效应（用户间讨论形成话题）</li>
+</ol>
+<p>自传播步骤：</p>
+<ol>
+<li><p>传播基础</p>
+<p>条件：</p>
+<ol>
+<li>产品能满足用户需求</li>
+<li>传播手段便捷<ul>
+<li>纵向传播：内容形式转换</li>
+<li>横向传播：跨平台分享</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>自主传播</p>
+<p>关键：激发用户传播的欲望。</p>
+<p>出发点：</p>
+<ol>
+<li>制造话题：话题可能会引起讨论并在人群中迅速传播。如：热搜讨论。</li>
+<li>从众心理：个人受到外界人群行为的影响，而在自己的知觉、判断、认识上表现出符合于公众舆论或多数人的行为方式。如：转发锦鲤。</li>
+<li>情绪引导：通过情绪上的引导（产生波动、感同身受），能够促使用户进行分享传播。如：水滴筹。</li>
+<li>引导参与：通过沉淀用户的行为，促使用户分享自身的成果。如：短视频平台发布视频。</li>
+<li>超预期场景：在超预期的场景下，用户分享传播将会变得更加简单。如：买东西被告知中奖。</li>
+</ol>
+</li>
+<li><p>传播转换</p>
+<p>发生自主传播后需要进行有效传播转换，才能达到用户增长的目的。</p>
+<p>出发点:</p>
+<ol>
+<li>可读性：降低被传播用户的接受门槛，轻松获取信息。如：图表优于文字。</li>
+<li>互动：使被传播者与传播者产生互动行为，有参与感或收获。如：帮别人砍价自己也能得到优惠。</li>
+<li>注意力：足够吸引用户的注意力，不至于被忽视。如：标题党。</li>
+</ol>
+</li>
+</ol>
+<p>指标：</p>
+<script type="math/tex; mode=display">
+K 因子 = 传播数量（每个用户向他的朋友们发出的邀请的数量）* 转化率（接收到邀请的人转化为新用户的转化率）</script><p>K 因子直接体现自传播结果水平：</p>
+<ul>
+<li>K 值大于1时，将激发自传播巨大的力量，K值越大，力量越强</li>
+<li>K值小于1，那么传播水平会逐步减弱，直至消失。</li>
+</ul>
+<h3 id="PEST"><a href="#PEST" class="headerlink" title="PEST"></a>PEST</h3><p><strong>宏观环境</strong>是指影响市场的宏观因素，可归纳为 PEST。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>环境</th>
+<th>关键指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Politics 政治环境</td>
+<td>政治/经济体制、财政/税收/产业/投资/补助政策、国际/地区关系</td>
+</tr>
+<tr>
+<td>Economics 经济环境</td>
+<td>GDP 及增长率、利率汇率、居民可支配收入、产业结构</td>
+</tr>
+<tr>
+<td>Social 社会文化环境</td>
+<td>人口规模、性别比例、年龄构成、价值观、生活方式、教育状况、消费观念、宗教信仰、风俗习惯</td>
+</tr>
+<tr>
+<td>Technology 技术环境</td>
+<td>国家重点支持、技术更新与传播速度、商品化速度、技术保护情况</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="波特五力"><a href="#波特五力" class="headerlink" title="波特五力"></a>波特五力</h3><p><strong>企业竞争环境</strong>可归纳为影响企业生存状态的波特五力。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>对象</th>
+<th>与企业的关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>供应商</td>
+<td>原材料</td>
+<td>讨价还价</td>
+</tr>
+<tr>
+<td>购买者</td>
+<td>产品</td>
+<td>讨价还价</td>
+</tr>
+<tr>
+<td>直接竞争对手</td>
+<td>同类竞品</td>
+<td>抢占市场份额，直接竞争</td>
+</tr>
+<tr>
+<td>间接竞争对手</td>
+<td>替代类竞品</td>
+<td>替代品削弱需求，间接竞争</td>
+</tr>
+<tr>
+<td>潜在进入者</td>
+<td>有可能进入该领域的大企业</td>
+<td>抢占市场的潜在威胁</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="归因分析"><a href="#归因分析" class="headerlink" title="归因分析"></a>归因分析</h3><h4 id="常见归因分析模型"><a href="#常见归因分析模型" class="headerlink" title="常见归因分析模型"></a>常见归因分析模型</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最后交互模型（Last Model）</td>
+<td>认定最后一个渠道的贡献为 100%，因此把转化归功于最后一个渠道</td>
+</tr>
+<tr>
+<td>第一次交互模型（First Model）</td>
+<td>认定第一个渠道的贡献为 100%，因此把转化归功于第一个渠道</td>
+</tr>
+<tr>
+<td>平均模型（Average Model）</td>
+<td>认为所有的渠道的贡献相等，因此将<strong>权重均摊</strong>到参与转化的所有渠道中</td>
+</tr>
+<tr>
+<td>时间衰减模型（Time Decay Model）</td>
+<td>认为贡献程度随时间而衰减</td>
+</tr>
+<tr>
+<td>自定义模型（Customized Model）</td>
+<td>以上四种权重分配都比较武断，无法直接指导投放的优化，因此有针对性的产生了生存分析、通径分析、马尔科夫链、<a href="#夏普利值">夏普利值</a>等模型</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="夏普利值"><a href="#夏普利值" class="headerlink" title="夏普利值"></a>夏普利值</h4><p>原则：在合作博弈中，所得与贡献相等。</p>
+<p>适用夏普利值的三个特点：</p>
+<ol>
+<li>夏普利值的有效性：联盟 S 具有完整性，不存在具有贡献却未纳入联盟里的参与者</li>
+<li>夏普利值的对称性：参与者价值 V{a, b} = V{b, a}</li>
+<li>夏普利值的可加性：联盟具有独立性，任意两个联盟合并的值等于两个联盟的值的合计，即 V{a, b} = V{a} + V{b} = V(a) + V(b)</li>
+</ol>
+<p>设 |S| 表示与该参与者相关的某联盟 S 中成员的数量，n 表示在合作博弈中所有参与者的数量，则</p>
+<ul>
+<li>与该参与者相关的每个联盟 S 的加权因子为：$\gamma_n (S) = \frac{(|S| - 1)! × (n - |S|)!}{n!}$</li>
+<li>该参与者价值的夏普利值为：$\varphi(v) = \sum \gamma_n(S) × (V(S) - V(S - {I}))$</li>
+</ul>
+<h3 id="RFM"><a href="#RFM" class="headerlink" title="RFM"></a>RFM</h3><blockquote>
+<p>用户画像是了解用户的重要手段，其包含多个方面：用户属性、用户消费特征、用户关联、用户非消费行为…等。其中，<strong>用户消费特征</strong>是用户画像中最核心、与业绩最直接相关的指标。RFM 模型就是根据消费特征对用户进行分层。</p>
+</blockquote>
+<h4 id="Def"><a href="#Def" class="headerlink" title="Def"></a>Def</h4><p>RFM 模型是根据最近消费时间（Recency）、消费频率（Frequency）、消费金额（Monetary）三个指标构建的用户分层模型。</p>
+<ul>
+<li><p>R（Recency）：用户最近一次消费时间间隔</p>
+<p>即，用户最后一次下单时间距今天多长时间。R 的值越小，用户价值越高。</p>
+</li>
+<li><p>F（Frequency）：用户消费频率</p>
+<p>即，用户在固定的时间段内消费了几次。</p>
+<p>该指标反映了用户的<strong>消费活跃度</strong>。F 的值越大，用户价值越高。</p>
+</li>
+<li><p>M（Monetary）：用户消费金额</p>
+<p>即，用户在固定的周期内在平台上花了多少钱。</p>
+<p>该指标直接反映了用户<strong>对公司贡献的价值</strong>。M 的值越大，用户价值越高。</p>
+</li>
+</ul>
+<h4 id="用户分层"><a href="#用户分层" class="headerlink" title="用户分层"></a>用户分层</h4><p>以下三种方法可以根据不同需求选用，一般第一种方法最常用，因为可以直观反映用户价值和重要性，然后根据用户价值和重要性采取不同策略，可操作性强。</p>
+<ol>
+<li><p>等级变量划分法</p>
+<p>根据R、F、M三个指标数据，将其转化为等级变量，如高、低，具体划分标准可依据指标数据分布确定（可取中位数或平均数作为分界线），再根据三个指标等级划分用户等级。</p>
+<p>如果每个指标划分为高、低两种等级，则用户可出现2^3=8种，但可根据实际需要将用户划分为3种等级，如下表所示：</p>
+<p>|R-Recency|F-Frequency|M-Monetary|用户等级|划分群体类型|<br>|-|-|-|-|-|<br>|高|高|高|A|重要价值客户|<br>|高|低|高|A|重要发展客户|<br>|低|高|高|B|重要保持客户|<br>|低|低|高|B|重要挽留客户|<br>|高|高|低|B|一般价值客户|<br>|高|低|低|B|一般发展客户|<br>|低|高|低|C|一般保持客户|<br>|低|低|低|C|一般挽留客户|</p>
+</li>
+<li><p>加权得分法</p>
+<ol>
+<li>将每一个指标归一化，$x_1 = \frac{x - min}{max - min}$，将每个指标都转化到0~1的区间内。需要注意的是R的取值需要进行转化，取 $x_2 = 1 - x_1$；</li>
+<li>赋予指标权重；</li>
+<li>计算用户的加权得分，根据得分对用户进行分层。</li>
+</ol>
+</li>
+<li><p>将指标取值转化为顺序变量，再计算加权得分</p>
+<ol>
+<li>根据分位数（如四分位数）将各项指标转化为1,2,3,4顺序变量</li>
+<li>赋予指标权重；</li>
+<li>计算用户的加权得分，根据得分对用户进行分层。</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h2><h3 id="多维度拆解"><a href="#多维度拆解" class="headerlink" title="多维度拆解"></a>多维度拆解</h3><blockquote>
+<p>辛普森悖论：考察数据的整体，和考察数据的部分会得出相反的结论。</p>
+</blockquote>
+<p>Def：</p>
+<p>通过不同维度观察同一组数据，发掘数据波动真正的原因。</p>
+<p>拆分角度：</p>
+<ul>
+<li>指标构成：根据单一指标的构成进行拆解分析。如：买家城市分为一线、二线、三线。</li>
+<li>业务流程：根据业务流程进行拆解分析。如：推荐页购物分为浏览、收藏、加购、购买。</li>
+</ul>
+<p>示例：</p>
+<p>为何推荐页购买率低？</p>
+<ol>
+<li>从指标构成拆解：对于不同城市，买家对本身没有强烈购买意愿的推荐物品的购买决策取决于当地经济水平和收入剩余，所以一线城市购买率可能高于二三线，但二三线用户基数大，所以拉低整体购买率。可以根据城市经济水平推荐价格更合适的物品。</li>
+<li>从业务流程拆解：通过各流程发现，浏览/收藏/加购多，而最终购买少，表明用户是感兴趣的但无法下定决心，猜测可能是不符合心里的预期价格导致推迟或放弃购买。可以通过组合优惠或购买赠送优惠券的方式增大购买的吸引力。</li>
+</ol>
+<h3 id="逻辑树分析"><a href="#逻辑树分析" class="headerlink" title="逻辑树分析"></a>逻辑树分析</h3><p>Def：</p>
+<p>逻辑树分析法通过将问题的各个要素以逻辑树的形式体现出来，同时从<strong>广度</strong>和<strong>深度</strong>两方面找出问题所在。逻辑树结构能够帮助理清思路及层次，避免混乱、重复、无关的思考，从而有针对性地制定策略。</p>
+<p>步骤：</p>
+<ol>
+<li>找出核心问题，将其放在逻辑树最上层；</li>
+<li>思考并罗列出所有能够影响核心问题的因素或思路，将其罗列在第二层；</li>
+<li>思考并罗列出所有能够实现各影响因素或思路的方法，将其罗列在第三层；</li>
+<li>针对第三次层方法，思考并罗列相应的解决对策；</li>
+<li>查漏补缺。</li>
+</ol>
+<p>示例：</p>
+<p>增加利润</p>
+<ul>
+<li>增加销售额<ul>
+<li>增加销售量 -&gt; 促销活动</li>
+<li>提高单价 -&gt; 组合套装</li>
+</ul>
+</li>
+<li>降低成本<ul>
+<li>降低原料成本 -&gt; 改变供应商</li>
+<li>降低人力成本 -&gt; 智能化设备</li>
+</ul>
+</li>
+</ul>
+<h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3><p>Def：</p>
+<ol>
+<li>假设结果：对总体参数提出一个假设值</li>
+<li>验证假设：利用样本信息判断这一假设是否成立</li>
+</ol>
+<p>显著性水平：</p>
+<h3 id="群组分析"><a href="#群组分析" class="headerlink" title="群组分析"></a>群组分析</h3><p>Def：</p>
+<p>同期群分析（Cohort Analysis），又称群组分析，根据初始行为的发生时间将用户划分为不同的群组，观察相似群组用户的行为特征表现。</p>
+<p>示例：</p>
+<p>（注：百分比为留存率 = 基期新增用户某月使用数 / 基期新增用户数）</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>月份</th>
+<th>新增用户</th>
+<th>+1 月</th>
+<th>+2 月</th>
+<th>+3 月</th>
+<th>+4 月</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 月</td>
+<td>106</td>
+<td>62%</td>
+<td>51%</td>
+<td>43%</td>
+<td>34%</td>
+</tr>
+<tr>
+<td>2 月</td>
+<td>122</td>
+<td>60%</td>
+<td>48%</td>
+<td>36%</td>
+<td></td>
+</tr>
+<tr>
+<td>3 月</td>
+<td>279</td>
+<td>49%</td>
+<td>27%</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4 月</td>
+<td>302</td>
+<td>35%</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>横向对比：每个月份的新增用户的在几个月内的留存变化情况</li>
+<li>纵向对比：比较不同月份的新增用户的新增数量和留存变化</li>
+</ul>
+<p>可以观察到：</p>
+<ol>
+<li>1、2 月份新增用户数少于 3、4 月份 — 因为 3、4 月份有拉新活动，新用户明显增多；</li>
+<li>3、4 月份的留存率低于同期 1、2 月份的留存率 — 3、4 月份拉新得来的新用户并未有效转化，可能新用户羊毛党居多或者不是目标用户。</li>
+</ol>
+<p>如果将观察指标从“留存率”换为“日均使用时长”，则可以从另一个角度了解这段时间的变化情况。</p>
+<h3 id="因子分析"><a href="#因子分析" class="headerlink" title="因子分析"></a>因子分析</h3><p>Def：</p>
+<p>同类型因素间的相关性会造成重叠信息的扩大化，增加分类偏差。因子分析是数据消减的常用方法，通过数据聚合，用少数不相关的因子反映多个具有相关性的原始信息，起到剔除相关性和数据降维的作用。</p>
+<p>步骤：</p>
+<ol>
+<li>适用性检验：原始维度具有相关性才能进行因子分析。</li>
+<li>因子提取：提取主要因子。常见方法有主成分分析。</li>
+<li>因子旋转：（类似旋转坐标轴）有效区隔各因子的维度特征，使之差异化。<ul>
+<li>因子载荷：表示因子对维度信息的解释程度。</li>
+</ul>
+</li>
+<li>因子命名：根据维度特征的特点对因子进行命名。</li>
+<li>计算因子得分：某因子得分越高表明越具有该因子的特征。</li>
+</ol>
+<h4 id="聚类分析"><a href="#聚类分析" class="headerlink" title="聚类分析"></a>聚类分析</h4><p>Def：</p>
+<p>用于非监督分类 — 事先不知该分成几类，探索样本数据的内在规律进行归类，使各类别之间具有显著性差异并描述各类别特征。</p>
+<p>分类：</p>
+<ol>
+<li><p>层次聚类（系统聚类）</p>
+<p>特点：事先不需要知道分几类，树状图会显示出所有的聚类方案。</p>
+<p>步骤：</p>
+<ol>
+<li>根据样本距离，将距离最近的样本合为一类；</li>
+<li>然后计算所形成的类别与其他样本的距离，对距离最近样本再做合并；</li>
+<li>依此类推，直到所有样本聚成一类，形成树状图。</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>迭代聚类</p>
+<p>特点：根据指定<strong>类别数</strong>进行分类。</p>
+<p>步骤：</p>
+<ol>
+<li>选择初始类中心点；</li>
+<li>将每个点按最近距离进行归类，并重新计算形成的新类的中心点；</li>
+<li>不断迭代，直至归类正确（每个点到所归类的中心点最近）。</li>
+</ol>
+</li>
+</ol>
+<p>层次聚类与迭代聚类比较：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>层次聚类</th>
+<th>迭代聚类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>思路</td>
+<td>逐层合并</td>
+<td>不断迭代，以确定类别中心点和类别构成</td>
+</tr>
+<tr>
+<td>类别数</td>
+<td>事先未知。树状图会显示所有聚类方案，可以从中选择最优方案</td>
+<td>事先已知并需要指定。若聚类效果不好，则需要重新设定类别数，重新聚类</td>
+</tr>
+<tr>
+<td>计算速度</td>
+<td>由于反复计算距离，当样本量太大或者变量比较多时计算速度比较慢</td>
+<td>计算量小，内存占用低，运行速度快。常用于处理多变量、大样本的数据</td>
+</tr>
+<tr>
+<td>聚类对象</td>
+<td>记录与变量均可</td>
+<td>只能对记录聚类</td>
+</tr>
+<tr>
+<td>数据类型</td>
+<td>连续变量和分类变量均可</td>
+<td>只可用连续变量</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h4><p>Def：</p>
+<p>探索两种或两种以上变量间相互依赖的定量关系（方程）。</p>
+<p>基本概念（以道格拉斯生产函数为例：$y = A K^\alpha L^\beta \mu$）：</p>
+<ol>
+<li><p>自变量与因变量</p>
+<p>自变量是因，常用 x 表示；因变量是果，常用 y 表示。</p>
+<p>在道格拉斯生产函数中：</p>
+<ul>
+<li>y（生产规模）是因变量</li>
+<li>K（资本） 和 L（劳动力） 为自变量，受企业影响</li>
+<li>A 是外生变量，不受企业影响，是一个常数。</li>
+</ul>
+</li>
+<li><p>一元与多元</p>
+<p>元，指变量的个数。</p>
+<p>在道格拉斯生产函数中：</p>
+<ul>
+<li>存在 K 和 L 两个变量，因此为二元分析。</li>
+</ul>
+</li>
+<li><p>线性与非线性</p>
+<p>如果回归模型中的<strong>所有自变量都是一次幂</strong>，则是线性回归；否则，为非线性回归。</p>
+<p>在道格拉斯生产函数中：</p>
+<ul>
+<li>自变量 K 和 L 分别为 $\alpha ∈ (0, 1)$ 次幂和 $\beta ∈ (0, 1)$ 次幂，因此为非线性回归</li>
+<li><p>为了使用线性回归，可以将非线性函数<strong>线性化</strong>（通过取 ln 对数化），将 K 和 L 转化为一次幂：</p>
+<p>$lny = lnA + \alpha lnK + \beta lnB + ln\mu$，设 $y_1 = lny$，$K_1 = lnK$，$B_1 = lnB$，则 $K_1$ 和 $B_1$ 为一次幂，与 $y_1$ 存在线性关系。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>回归分析预测步骤：</p>
+<ol>
+<li>整理数据源与线性化</li>
+<li>调用回归分析</li>
+<li>确定常量 A 和系数$\alpha$，$\beta$，求出回归方程</li>
+<li><p><strong>假设检验</strong></p>
+<p>原因：经验模型不一定适用于所有场景；根据散点图判断回归模型具有主观性。</p>
+<p>检验方法:</p>
+<ul>
+<li><p>$T$ 检验</p>
+<p>对回归<strong>系数</strong>的检验，思路：若 X 与 Y 相关，则回归系数≠0。检验标准是 $T_{统计量}$ 的伴随概率 $P &lt; \alpha（显著性水平，默认为 0.05）$。</p>
+<p>若检验不通过，以 L（劳动力）为例，表明 L 的回归系数等于 0 不是小概率事件，即 L 与 y 的相关性不强，因此提出 L 这个自变量，重新回归；对重新回归后的系数再次检验，知道所有剩余的自变量都通过检验为止。若用剔除法仍有自变量没有通过检验，则表明回归模型不恰当，需要重新建立回归模型。</p>
+</li>
+<li><p>$F$ 检验</p>
+<p>对回归<strong>系数</strong>的检验，思路：若回归方程有效，则回归方程对样本数据的信息解释量要高于误差项 $\mu$ 对样本数据信息的解释量。检验标准是 $F_{统计值}$ 的伴随概率 $Significance F &lt; \alpha（显著性水平，默认为 0.05）$。</p>
+<p>若检验不通过，则表明从样本数据来看，L（劳动力）和 K（资本）并不能充分解释生产规模的变动，即可能还有其他重要的影响因素没有纳入模型中，需要重新建立模型。</p>
+</li>
+</ul>
+</li>
+<li><p>回归预测</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+            <a href="/tags/collection/" rel="tag"># collection</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/18/mysql-norm/" rel="next" title="MySQL 规范">
+                <i class="fa fa-chevron-left"></i> MySQL 规范
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/10/07/电商笔记/" rel="prev" title="电商笔记">
+                电商笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Json">
+            
+              <p class="site-author-name" itemprop="name">Json</p>
+              <div class="site-description motion-element" itemprop="description">Record & Share</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jsonww" title="GitHub &rarr; https://github.com/jsonww" rel="noopener" target="_blank"><i class="fa fa-fw fa-github modify"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/json.wong.work@gmail.com" title="E-Mail &rarr; json.wong.work@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据分析思维"><span class="nav-number">1.</span> <span class="nav-text">数据分析思维</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先行概念"><span class="nav-number">1.1.</span> <span class="nav-text">先行概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#市场营销"><span class="nav-number">1.1.1.</span> <span class="nav-text">市场营销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定性分析与定量分析"><span class="nav-number">1.1.3.</span> <span class="nav-text">定性分析与定量分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预测"><span class="nav-number">1.1.4.</span> <span class="nav-text">预测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决什么问题-明确分析思维"><span class="nav-number">1.2.</span> <span class="nav-text">解决什么问题 - 明确分析思维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析哪些内容-开启分析思路"><span class="nav-number">1.3.</span> <span class="nav-text">分析哪些内容 - 开启分析思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学会提问"><span class="nav-number">1.3.1.</span> <span class="nav-text">学会提问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熟悉模型"><span class="nav-number">1.3.2.</span> <span class="nav-text">熟悉模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构化思维"><span class="nav-number">1.3.3.</span> <span class="nav-text">结构化思维</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#时间与结构思维"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">时间与结构思维</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#演绎思维"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">演绎思维</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要性思维"><span class="nav-number">1.3.4.</span> <span class="nav-text">重要性思维</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析到什么程度-打开分析视角"><span class="nav-number">1.4.</span> <span class="nav-text">分析到什么程度 - 打开分析视角</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对比视角"><span class="nav-number">1.4.1.</span> <span class="nav-text">对比视角</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对比类型"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">对比类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对比可信度"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">对比可信度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类视角"><span class="nav-number">1.4.2.</span> <span class="nav-text">分类视角</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#意义"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关视角"><span class="nav-number">1.4.3.</span> <span class="nav-text">相关视角</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关定义"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">相关定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关判定"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">相关判定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#描述视角"><span class="nav-number">1.4.4.</span> <span class="nav-text">描述视角</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整体趋势"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">整体趋势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个体波动"><span class="nav-number">1.4.4.2.</span> <span class="nav-text">个体波动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体业务中的视角选择"><span class="nav-number">1.4.5.</span> <span class="nav-text">具体业务中的视角选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">1.5.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RATER"><span class="nav-number">1.5.1.</span> <span class="nav-text">RATER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KANO"><span class="nav-number">1.5.2.</span> <span class="nav-text">KANO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SWOT"><span class="nav-number">1.5.3.</span> <span class="nav-text">SWOT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IEF内外因素评价矩阵"><span class="nav-number">1.5.4.</span> <span class="nav-text">IEF内外因素评价矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户行为五阶段、5W2H"><span class="nav-number">1.5.5.</span> <span class="nav-text">用户行为五阶段、5W2H</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#品牌知觉图"><span class="nav-number">1.5.6.</span> <span class="nav-text">品牌知觉图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graveyard"><span class="nav-number">1.5.7.</span> <span class="nav-text">Graveyard</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PSM"><span class="nav-number">1.5.8.</span> <span class="nav-text">PSM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4P-营销理论"><span class="nav-number">1.5.9.</span> <span class="nav-text">4P 营销理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AARRR"><span class="nav-number">1.5.10.</span> <span class="nav-text">AARRR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Acquisition-获取"><span class="nav-number">1.5.10.1.</span> <span class="nav-text">Acquisition 获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Activation-激活"><span class="nav-number">1.5.10.2.</span> <span class="nav-text">Activation 激活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Retention-留存"><span class="nav-number">1.5.10.3.</span> <span class="nav-text">Retention 留存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Revenue-变现"><span class="nav-number">1.5.10.4.</span> <span class="nav-text">Revenue 变现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Referral-传播"><span class="nav-number">1.5.10.5.</span> <span class="nav-text">Referral 传播</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PEST"><span class="nav-number">1.5.11.</span> <span class="nav-text">PEST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#波特五力"><span class="nav-number">1.5.12.</span> <span class="nav-text">波特五力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归因分析"><span class="nav-number">1.5.13.</span> <span class="nav-text">归因分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见归因分析模型"><span class="nav-number">1.5.13.1.</span> <span class="nav-text">常见归因分析模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#夏普利值"><span class="nav-number">1.5.13.2.</span> <span class="nav-text">夏普利值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RFM"><span class="nav-number">1.5.14.</span> <span class="nav-text">RFM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Def"><span class="nav-number">1.5.14.1.</span> <span class="nav-text">Def</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户分层"><span class="nav-number">1.5.14.2.</span> <span class="nav-text">用户分层</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">1.6.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多维度拆解"><span class="nav-number">1.6.1.</span> <span class="nav-text">多维度拆解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑树分析"><span class="nav-number">1.6.2.</span> <span class="nav-text">逻辑树分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#假设检验"><span class="nav-number">1.6.3.</span> <span class="nav-text">假设检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#群组分析"><span class="nav-number">1.6.4.</span> <span class="nav-text">群组分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#因子分析"><span class="nav-number">1.6.5.</span> <span class="nav-text">因子分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#聚类分析"><span class="nav-number">1.6.5.1.</span> <span class="nav-text">聚类分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回归分析"><span class="nav-number">1.6.5.2.</span> <span class="nav-text">回归分析</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+	
+	<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+	<div class="widget-wrap">
+	    <h3 class="widget-title">Tag Cloud</h3>
+	    <div id="myCanvasContainer" class="widget tagcloud">
+		<canvas width="250" height="250" id="resCanvas" style="width=100%">
+		    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/">chatgpt</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/collection/">collection</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter-notebook/">jupyter-notebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/new-bing/">new bing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/next/">next</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipfile/">pipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prompt/">prompt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/systemctl/">systemctl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/云服务器/">云服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据分析/">数据分析</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟环境/">虚拟环境</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计组/">计组</a><span class="tag-list-count">1</span></li></ul>
+		</canvas>
+	    </div>
+	</div>
+	
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-id-card-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Json</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">155k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:21</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

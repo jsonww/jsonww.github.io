@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/feather_pen_26.9312px_1231006_easyicon.net.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/feather_pen_13.4656px_1231006_easyicon.net.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '3OTURL0KQC',
+      apiKey: '',
+      indexName: 'count',
+      hits: {"per_page":6},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="[Updated]  本文记录搭建离线过程中收集的知识点。">
+<meta name="keywords" content="Python, SQL, Data Analysis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离线数仓笔记">
+<meta property="og:url" content="https://jsonww.gitee.io/2022/08/28/dw/index.html">
+<meta property="og:site_name" content="Json workspace">
+<meta property="og:description" content="[Updated]  本文记录搭建离线过程中收集的知识点。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-08-28T14:52:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="离线数仓笔记">
+<meta name="twitter:description" content="[Updated]  本文记录搭建离线过程中收集的知识点。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://jsonww.gitee.io/2022/08/28/dw/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>离线数仓笔记 | Json workspace</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Json workspace</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">江畔何人初见月 江月何年初照人</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jsonww.gitee.io/2022/08/28/dw/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Json">
+      <meta itemprop="description" content="Record & Share">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Json workspace">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">离线数仓笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+	  
+ 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-08-28 22:52:27" itemprop="dateCreated datePublished" datetime="2022-08-28T22:52:27+08:00">2022-08-28</time>
+            </span>
+          
+
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">4.1k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">4 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><font color="#008000"> [Updated] </font> 本文记录搭建离线过程中收集的知识点。</p>
+<a id="more"></a>
+<h1 id="离线数仓笔记"><a href="#离线数仓笔记" class="headerlink" title="离线数仓笔记"></a>离线数仓笔记</h1><h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>在满足日常需求的过程中总结常用需求，研发公共数据层；</li>
+<li>获得领导支持，以获得更多研发资源；</li>
+<li>在满足业务需求的过程中，根据业务需求的变化不断对公共数据层进行迭代和优化；</li>
+<li>随着时间的推移 ，越来越多的日常业务需求可以用公共数据层来完成；</li>
+<li><strong>日常业务需求开发</strong>和<strong>公共数据层构建</strong>是相互促进的循环。</li>
+</ol>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
+<li>汇总数据源到 ods 层</li>
+<li>划分主题域，构建总线矩阵</li>
+<li>整合事实表</li>
+<li>整合维度表（构建一致性维度）</li>
+<li>ETL 开发</li>
+<li>应用迁移</li>
+</ol>
+<h2 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h2><p>元数据（Meta Data）是描述数据的数据。</p>
+<p>作用：</p>
+<ol>
+<li><p>元数据查看</p>
+<p> 浏览表的结构、字段信息、数据模型、指标信息等。</p>
+</li>
+<li><p>数据血缘（追溯上游）</p>
+<p> 定义：以历史事实的方式记录数据的来源、处理过程等。</p>
+<p> 场景：在数据分析中发现问题数据的时候，通过血缘关系追根溯源，快速地定位到问题数据的来源和加工流程，减少分析的时间和难度。</p>
+</li>
+<li><p>影响性分析（影响下游）</p>
+<p> 定义：分析出数据的下游流向。</p>
+<p> 场景：当系统进行升级改造的时候，如果修改了数据结构、ETL程序等元数据信息，通过影响性分析，可快速定位出元数据修改会影响到哪些下游系统，从而减少系统升级改造带来的风险。</p>
+</li>
+<li><p>数据冷热度分析</p>
+<p> 定义：对数据表的被使用情况进行统计。</p>
+<p> 场景：从访问频次和业务需求角度出发，进行数据冷热度分析，用图表的方式，展现表的重要性指数，对冷热度不同的数据做分层存储或评估下线，以更好地利用HDFS资源。</p>
+</li>
+<li><p>数据资产地图</p>
+<p> 在宏观层面组织信息，以全局视角对信息进行归并、整理，展现数据量、数据变化情况、数据存储情况、整体数据质量等信息，为数据管理部门和决策者提供参考。</p>
+</li>
+</ol>
+<h2 id="数据建模模型"><a href="#数据建模模型" class="headerlink" title="数据建模模型"></a>数据建模模型</h2><h3 id="表类型"><a href="#表类型" class="headerlink" title="表类型"></a>表类型</h3><h4 id="事实表（Fact-Table）"><a href="#事实表（Fact-Table）" class="headerlink" title="事实表（Fact Table）"></a>事实表（Fact Table）</h4><p>描述业务内<strong>特定事件</strong>的数据，譬如：用户的一个操作（访问、购买、退单）。</p>
+<h4 id="维度表（DIM，Dimension）"><a href="#维度表（DIM，Dimension）" class="headerlink" title="维度表（DIM，Dimension）"></a>维度表（DIM，Dimension）</h4><p>又称维表或查找表（Lookup Table），保存了维度的属性值，可以跟事实表做关联，相当于<strong>将事实表上经常重复出现的属性抽取、规范出来用一张表进行管理</strong>。维度表主要包含类：</p>
+<ul>
+<li>高基数维度数据：一般是用户资料表、商品资料表类似的资料表，数据量可能是千万级或者上亿级别</li>
+<li>低基数维度数据：一般是配置表，比如枚举字段对应的中文含义，或者日期维表等；数据量可能就是个位数或者几千几万</li>
+</ul>
+<h3 id="星型模型-Star-Schema"><a href="#星型模型-Star-Schema" class="headerlink" title="星型模型(Star Schema)"></a>星型模型(Star Schema)</h3><p>最常用的维度建模方式。 星型模式是以事实表为中心，所有的维度表直接连接在事实表上，像星星一样。星形模式的维度建模由一个事实表和一组维度表成，且具有以下特点：</p>
+<ul>
+<li>维表只和事实表关联，维表之间没有关联；</li>
+<li>每个维表主键为单列，且该主键放置在事实表中，作为两边连接的外键；</li>
+<li>以事实表为核心，维表围绕核心呈星形分布；</li>
+</ul>
+<h3 id="雪花模型-Snowflake-Schema"><a href="#雪花模型-Snowflake-Schema" class="headerlink" title="雪花模型(Snowflake Schema)"></a>雪花模型(Snowflake Schema)</h3><p>星形模式的扩展。 雪花模式的维度表可以拥有其他维度表的，虽然这种模型相比星型更规范一些，但是由于这种模型不太容易理解，维护成本比较高，而且性能方面需要关联多层维表，性能也比星型模型要低。 所以一般不是很常用。</p>
+<h3 id="星座模型"><a href="#星座模型" class="headerlink" title="星座模型"></a>星座模型</h3><p>由星型模式延伸而来。星型模式是基于一张事实表的，而星座模式是基于多张事实表的，而且共享维度信息。 前面介绍的两种维度建模方法都是多维表对应单事实表，但在很多时候维度空间内的事实表不止一个，而一个维表也可能被多个事实表用到。 在业务发展后期，绝大部分维度建模都采用的是星座模式。</p>
+<h2 id="维度建模"><a href="#维度建模" class="headerlink" title="维度建模"></a>维度建模</h2><p>Kimball的多维体系结构（MD）中的三个关键性概念之一：</p>
+<ul>
+<li>一致性维度（Conformed Dimension）</li>
+<li>一致性事实（Conformed Fact）</li>
+<li>总线矩阵（Bus Architecture）</li>
+</ul>
+<h2 id="数仓体系"><a href="#数仓体系" class="headerlink" title="数仓体系"></a>数仓体系</h2><h3 id="分层原因"><a href="#分层原因" class="headerlink" title="分层原因"></a>分层原因</h3><ul>
+<li>数据结构清晰：每层都有其作用域和职责，使用时便于定位理解</li>
+<li>空间换时间：允许冗余，通用的中间层能减少重复计算</li>
+<li>统一数据口径：通过数据分层，提供统一的数据输入/输出口径</li>
+<li>简化复杂任务：每层只解决特定的问题，逻辑简单保证正确性，出错后易溯源易调整</li>
+</ul>
+<h3 id="分层场景"><a href="#分层场景" class="headerlink" title="分层场景"></a>分层场景</h3><p>由简单到复杂依次为：</p>
+<ol>
+<li><p>时间紧任务重，急于看结果</p>
+<p> <strong>不分层</strong>：直接连各个业务数据库，抽取数据到大数据平台，根据需求组合join或者汇总count、sum就行。作者现在公司服务的数仓项目前身就是这样，将各个业务系统数据抽取到oracle，你看都没有大数据平台就做了。</p>
+</li>
+<li><p>公司业务简单，且相对比较固定，数据来源不多，结构也很清晰，需求也不多</p>
+<p> <strong>通用的数仓架构</strong>：ODS起到解耦业务数据库+异构数据源的问题，DWD解决数据脏乱差的问题，DWS复用的指标计算，ADS直接面向前台业务需求。</p>
+</li>
+<li><p>公司业务复杂，业务变化较快</p>
+<p> <strong>通用的数仓架构 + DWT 层</strong>：多一层DWT层做汇总，多一层解耦，业务变化的时候，我们只改DWS层就好了，最多穿透到DWT层。业务变化的时候调整一下，工作量也不会太大，最重要的是能保证底层结构的稳定和数据分析的可持续性。</p>
+</li>
+<li><p>公司业务较为复杂，集团性公司，下辖多个部门bu事业线，bu间业务内容交叉不大</p>
+<p> <strong>通用的数仓架构 + DWT 层 + DM 层</strong>：各个数据集市层，单独供数，甚至有单独的计算资源，这样可以避免因为计算任务代码混在一起、数据权限拆分等问题带来的数据变更成本。</p>
+</li>
+</ol>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ol>
+<li>越接近上层，服务范围越小、越精准、越易用，访问量级越小</li>
+<li>中间层表 DWS/DWT 应该能撑起 80% 的需求，最好不要暴露原始数据（即 ODS）</li>
+</ol>
+<h3 id="如何分层"><a href="#如何分层" class="headerlink" title="如何分层"></a>如何分层</h3><ul>
+<li>数据引入层ODS（Operation Data Store）：解耦业务数据库，汇总异构数据源，存放未经过处理的原始数据至数据仓库系统，结构上与源系统保持一致，是数据仓库的数据引入准备区和备份。</li>
+<li><p>公共数据层CDM（Common Data Model，又称通用数据模型层）：包括DIM维度表、DWD和DWS，由ODS层数据加工而成。主要完成<strong>数据加工与整合</strong>，<strong>建立一致性的维度</strong>，<strong>构建可复用的面向分析和统计的明细事实表</strong>，以及<strong>汇总公共粒度的指标</strong>。</p>
+<ul>
+<li><p>明细数据层（DWD，Data Warehouse Detail）：以<strong>业务过程</strong>作为建模驱动，<strong>基于每个具体的业务过程特点，构建最细粒度的明细层事实表</strong>。可以结合企业的数据使用特点，将明细事实表的某些重要维度属性字段做适当冗余，即宽表化处理。明细粒度事实层的表通常也被称为逻辑事实表。</p>
+<p>e.g. 用户行为日志表中行为字段含 — 访问、加购、购买，那么分别抽取每个具体行为构建最细粒度事实表 — 用户访问表、用户加购表、用户购买表。</p>
+</li>
+<li><p>公共维度层（DIM）：基于维度建模理念思想，建立整个企业的<strong>一致性维度</strong>。降低数据计算口径和算法不统一风险。公共维度层的表通常也被称为逻辑维度表，维度和维度逻辑表通常一一对应。</p>
+<p>e.g. 地区 Id、地区名、地区号；日期、日期所属周、星期、是否特殊节日、节日信息。</p>
+</li>
+<li><p>公共汇总层（DWS，Data Warehouse Summary）：以<strong>分析的主题对象</strong>作为建模驱动，基于上层的应用和产品的指标需求，构建公共粒度的汇总指标事实表，以宽表化手段物理化模型。构建命名规范、口径一致的统计指标，为上层提供公共指标，建立汇总宽表、明细事实表。公共汇总粒度事实层的表通常也被称为汇总逻辑表，用于存放派生指标数据。</p>
+<p>e.g. 对用户访问表、用户加购表、用户购买表汇总成宽表 — 用户 Id、访问次数、加购次数、购买次数。</p>
+</li>
+</ul>
+</li>
+<li>数据应用层：存放数据产品个性化的统计指标数据。根据 CDM 与 ODS 层加工生成。</li>
+</ul>
+<h3 id="衡量标准"><a href="#衡量标准" class="headerlink" title="衡量标准"></a>衡量标准</h3><blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/401982516" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/401982516</a></p>
+</blockquote>
+<ol>
+<li><p>完善度</p>
+<ul>
+<li><p><strong>DWD 跨层引用率</strong>：ODS层直接被DWS/ADS/DM层引⽤的表，占所有ODS层表（仅统计活跃表）⽐例。</p>
+<p>跨层引⽤率越低越好，在数据中台模型设计规范中，要求不允许出现跨层引⽤，<em>ODS层数据只能被DWD引⽤</em>。</p>
+</li>
+<li><p><strong>DWS/ADS/DIM层完善度：DWS/ADS/DM层的查询占所有查询的⽐例。</strong></p>
+<p><em>考核汇总数据的完善度</em>，主要看汇总数据能直接满⾜多少查询需求（也就是⽤汇总层数据的查询⽐例衡量）。如果汇总数据⽆法满⾜需求，使⽤数据的⼈就必须使⽤明细数据，甚⾄是原始数据。</p>
+</li>
+</ul>
+</li>
+<li><p>复用度</p>
+<p> 模型引用系数：⼀个模型被读取，直接产出下游模型的平均数量。引⽤系数越⾼，说明数仓的复⽤性越好。</p>
+<p> e.g. ⼀张DWD层表被 N 张DWS层表引⽤，这张DWD层表的引⽤系数就是 N。所有DWD层表（有下游表的）引⽤系数取平均，即DWD层表平均模型引⽤系数，⼀般低于2⽐较差，3以上相对⽐较好（经验值）。</p>
+</li>
+<li><p>规范度</p>
+<ul>
+<li><p>没有主题域、业务过程归属的表的数量占比</p>
+<p>这类表难以查找，也无法复用。</p>
+</li>
+<li><p>不规范命名的表的数量占比</p>
+<p>⼀个规范的表命名应该包括 <em>DM、主题域、分层、日期、全量/增量快照</em> 等信息。</p>
+</li>
+<li><p>字段命名不一致的表的数量占比</p>
+<p>相同的字段在不同的模型中，它的命名必须是⼀致的，避免歧义和不确定性。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h2><ol>
+<li><p>ods 与 dwd 区别</p>
+<p> 现实中接触的情况是 ods 层的数据很难保证质量，数据的来源和形式多种多样（e.g. ods 层文件的数据源不同，有些是 json，有些是日志，有些来自业务数据库）；</p>
+<p> 通过额外的一层 dwd 来屏蔽一些底层的差异（清洗、规范化），统合异构数据源。</p>
+</li>
+<li><p>ods 清洗到 dwd</p>
+<p> 尽量保留原始信息，又相对干净。简单处理、少清洗是为了避免增加溯源、排错成本。类似简单 EDA：</p>
+<ol>
+<li>数据标准化，字段类型、命名统一</li>
+<li>默认值填充</li>
+<li>异常值处理转化</li>
+<li>字段处理：选择、转换（ip转数值）、拆解</li>
+</ol>
+</li>
+<li><p>从 dwd 层到 dws 层后就可以直接给到应用层的指标汇总表算是dws层的表还是ads层的表？</p>
+<p> dws 可以绕过 ads 被应用直接访问的。一般情况下，<strong>能被多个应用共享的</strong>，归入dws层；<strong>单个应用专属而不被其他使用的</strong>，归入ads。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/08/16/hive/" rel="next" title="Hive 笔记集合">
+                <i class="fa fa-chevron-left"></i> Hive 笔记集合
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/04/12/chatgpt-se/" rel="prev" title="ChatGPT 与 SE 的区别">
+                ChatGPT 与 SE 的区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Json">
+            
+              <p class="site-author-name" itemprop="name">Json</p>
+              <div class="site-description motion-element" itemprop="description">Record & Share</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/jsonww" title="GitHub &rarr; https://github.com/jsonww" rel="noopener" target="_blank"><i class="fa fa-fw fa-github modify"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/json.wong.work@gmail.com" title="E-Mail &rarr; json.wong.work@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#离线数仓笔记"><span class="nav-number">1.</span> <span class="nav-text">离线数仓笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建过程"><span class="nav-number">1.1.</span> <span class="nav-text">搭建过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.1.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程"><span class="nav-number">1.1.2.</span> <span class="nav-text">流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元数据"><span class="nav-number">1.2.</span> <span class="nav-text">元数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据建模模型"><span class="nav-number">1.3.</span> <span class="nav-text">数据建模模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表类型"><span class="nav-number">1.3.1.</span> <span class="nav-text">表类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事实表（Fact-Table）"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">事实表（Fact Table）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#维度表（DIM，Dimension）"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">维度表（DIM，Dimension）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#星型模型-Star-Schema"><span class="nav-number">1.3.2.</span> <span class="nav-text">星型模型(Star Schema)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#雪花模型-Snowflake-Schema"><span class="nav-number">1.3.3.</span> <span class="nav-text">雪花模型(Snowflake Schema)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#星座模型"><span class="nav-number">1.3.4.</span> <span class="nav-text">星座模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#维度建模"><span class="nav-number">1.4.</span> <span class="nav-text">维度建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数仓体系"><span class="nav-number">1.5.</span> <span class="nav-text">数仓体系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分层原因"><span class="nav-number">1.5.1.</span> <span class="nav-text">分层原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分层场景"><span class="nav-number">1.5.2.</span> <span class="nav-text">分层场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#要点"><span class="nav-number">1.5.3.</span> <span class="nav-text">要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何分层"><span class="nav-number">1.5.4.</span> <span class="nav-text">如何分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#衡量标准"><span class="nav-number">1.5.5.</span> <span class="nav-text">衡量标准</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Issue"><span class="nav-number">1.6.</span> <span class="nav-text">Issue</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+	
+	<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+	<div class="widget-wrap">
+	    <h3 class="widget-title">Tag Cloud</h3>
+	    <div id="myCanvasContainer" class="widget tagcloud">
+		<canvas width="250" height="250" id="resCanvas" style="width=100%">
+		    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/">chatgpt</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/">chrome</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/collection/">collection</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter-notebook/">jupyter-notebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/new-bing/">new bing</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/next/">next</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipfile/">pipfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/prompt/">prompt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regex/">regex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/service/">service</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/systemctl/">systemctl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/">tools</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/云服务器/">云服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据分析/">数据分析</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟环境/">虚拟环境</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计组/">计组</a><span class="tag-list-count">1</span></li></ul>
+		</canvas>
+	    </div>
+	</div>
+	
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-id-card-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Json</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">155k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:21</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
